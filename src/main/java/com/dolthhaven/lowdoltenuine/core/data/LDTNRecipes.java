@@ -5,7 +5,6 @@ import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlockFamilies;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
-import jdk.jfr.Category;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -19,7 +18,6 @@ import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.STURDY_DEEPSLATE;
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.ZINC_BRICKS;
@@ -34,13 +32,15 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
     protected void buildRecipes(RecipeOutput output, HolderLookup.Provider holderLookup) {
         storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, STURDY_DEEPSLATE);
 
+
+        AndCondition createCCLoaded = and(Consts.QUARK.requiresLoaded(), Consts.CREATE.requiresLoaded());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ZINC_BRICKS, 4)
                 .define('z', RegUtil.item(Consts.RAW_ZINC)).define('d', Items.DEEPSLATE)
                 .pattern("zd").pattern("dz").unlockedBy("has_zinc", has(RegUtil.item(Consts.RAW_ZINC)))
-                .save(output.withConditions(and(Consts.QUARK.requiresLoaded(), Consts.CREATE.requiresLoaded())));
+                .save(output.withConditions(createCCLoaded));
 
-        generateRecipes(output, LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
-        stoneCutterForBlockFamily(output, LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
+        generateRecipes(output.withConditions(createCCLoaded), LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
+        stoneCutterForBlockFamily(output.withConditions(createCCLoaded), LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
     }
 
     protected static void twoByTwoCustomLoc(RecipeOutput recipeOutput, RecipeCategory category, ItemLike packed, ItemLike unpacked, String savePath) {
