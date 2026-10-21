@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "lowdoltenuine:block/date_crate_bottom",
+    "side": "lowdoltenuine:block/date_crate_side",
+    "top": "lowdoltenuine:block/date_crate_top"
+  }
+}

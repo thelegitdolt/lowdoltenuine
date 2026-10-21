@@ -19,8 +19,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.Arrays;
 
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.STURDY_DEEPSLATE;
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.ZINC_BRICKS;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
 public class LDTNRecipes extends BlueprintRecipeProvider {
 
@@ -31,7 +30,7 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput output, HolderLookup.Provider holderLookup) {
         storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, STURDY_DEEPSLATE);
-
+        storageRecipes(output.withConditions(Consts.SPAWN.requiresLoaded()), RecipeCategory.FOOD, RegUtil.item(Consts.SPAWN_DATES), RecipeCategory.DECORATIONS, DATE_CRATE);
 
         AndCondition createCCLoaded = and(Consts.CAVERNS_AND_CHASMS.requiresLoaded(), Consts.CREATE.requiresLoaded());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ZINC_BRICKS, 4)

@@ -23,13 +23,19 @@ public class LDTNItems {
         CreativeModeTabContentsPopulator.mod(Lowdoltenuine.MOD_ID)
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
+                    .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
                 .predicate(LDTNItems::createPredicate)
-                .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS);
+                    .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
+                .predicate(LDTNItems::spawnPredicate)
+                    .addItemsAfter(ofID(Consts.SPAWN_DATES, Consts.SPAWN.id()), DATE_CRATE);
     }
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(Consts.CREATE_BUILDING_TAB);
+    }
+
+    public static boolean spawnPredicate(BuildCreativeModeTabContentsEvent event) {
+        return event.getTabKey().location().equals(Consts.SPAWN_ITEM_TAB);
     }
 
     public static Predicate<ItemStack> ofID(ResourceLocation location, String... modids) {

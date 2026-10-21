@@ -13,6 +13,5 @@ public class LDTNItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
     }
 }

@@ -63,6 +63,8 @@ public class LDTNLootTables extends LootTableProvider{
 
         @Override
         protected void generate() {
+            this.dropSelf(DATE_CRATE.get());
+
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.forStoneFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
         }

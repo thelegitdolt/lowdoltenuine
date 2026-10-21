@@ -1,19 +1,23 @@
 package com.dolthhaven.lowdoltenuine.core.registry;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
+import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.LDTNBlockProps.STURDY_DEEPSLATE_PROPS;
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.LDTNBlockProps.ZINC_PLATED_BRICKS;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.LDTNBlockProps.*;
 import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
 
 public class LDTNBlocks {
     public static final BlockSubRegistryHelper BLOCKS = Lowdoltenuine.REGISTRY_HELPER.getBlockSubHelper();
+
+
+    public static final DeferredBlock<Block> DATE_CRATE = BLOCKS.createBlock("date_crate", () -> new BlueprintDirectionalBlock(DATE_CRATE_PROP));
 
     public static final DeferredBlock<Block> STURDY_DEEPSLATE = BLOCKS.createBlock("sturdy_deepslate", () -> new Block(STURDY_DEEPSLATE_PROPS));
 
@@ -25,6 +29,8 @@ public class LDTNBlocks {
 
     public static class LDTNBlockProps {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE_PROPS = BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(4.5F, 9.0F).pushReaction(PushReaction.IGNORE);
+
+        public static final BlockBehaviour.Properties DATE_CRATE_PROP = BlockBehaviour.Properties.of().ignitedByLava().instrument(NoteBlockInstrument.BASS).strength(1.5f).sound(SoundType.WOOD).mapColor(MapColor.COLOR_BROWN);
 
         public static final BlockBehaviour.Properties ZINC_PLATED_BRICKS = BlockBehaviour.Properties.of().mapColor(GLOW_LICHEN)
                 .strength(3.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops().instrument(NoteBlockInstrument.BASEDRUM);

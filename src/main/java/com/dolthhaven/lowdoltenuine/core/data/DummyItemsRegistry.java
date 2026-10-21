@@ -5,6 +5,7 @@ import com.dolthhaven.lowdoltenuine.utils.Consts;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.loading.DatagenModLoader;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -17,10 +18,12 @@ public class DummyItemsRegistry {
 
     @SubscribeEvent
     public static void registerDummies(RegisterEvent event) {
-        var list = List.of(Consts.ZINC_INGOT);
+        var list = List.of(Consts.ZINC_INGOT, Consts.SPAWN_DATES);
         if (DatagenModLoader.isRunningDataGen()) {
-            list.forEach(location ->
-                    event.register(Registries.ITEM, reg -> reg.register(location, new Item(new Item.Properties()))));
+            list.forEach(location -> {
+                if (!ModList.get().isLoaded(location.getNamespace()))
+                    event.register(Registries.ITEM, reg -> reg.register(location, new Item(new Item.Properties())));
+            });
         }
     }
 }
