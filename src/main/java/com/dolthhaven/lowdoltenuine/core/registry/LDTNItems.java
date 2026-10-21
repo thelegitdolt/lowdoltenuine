@@ -10,6 +10,7 @@ import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -29,6 +30,9 @@ public class LDTNItems {
                     .addItemsAfter(ofMod(Items.AMETHYST_CLUSTER, Consts.HEART_CRYSTALS), HEART_GEODE)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                     .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
+                    .addItemsAfter(of(Blocks.EMERALD_BLOCK), HEART_CRYSTAL_LAMP)
+                .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+                    .addItemsAfter(of(Blocks.SEA_LANTERN), HEART_CRYSTAL_LAMP)
                 .predicate(LDTNItems::createPredicate)
                     .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
                 .predicate(LDTNItems::spawnPredicate)

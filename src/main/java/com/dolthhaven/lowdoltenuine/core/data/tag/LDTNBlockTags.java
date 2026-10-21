@@ -21,6 +21,6 @@ public class LDTNBlockTags extends BlockTagsProvider {
         this.tag(Tags.Blocks.STORAGE_BLOCKS).add(STURDY_DEEPSLATE.get(), DATE_CRATE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(STURDY_DEEPSLATE.get(), ZINC_BRICK_SLAB.get(), ZINC_BRICKS.get(), ZINC_BRICK_WALL.get(),
-                CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get());
+                CHISELED_ZINC_BRICKS.get(), ZINC_BRICK_STAIRS.get(), HEART_CRYSTAL_LAMP.get());
     }
 }

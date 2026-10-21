@@ -34,8 +34,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.DATE_CRATE;
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.STURDY_DEEPSLATE;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNItems.HEART_GEODE;
 import static net.minecraft.world.level.storage.loot.LootPool.lootPool;
 import static net.minecraft.world.level.storage.loot.LootTable.lootTable;
@@ -71,6 +70,7 @@ public class LDTNLootTables extends LootTableProvider{
         @Override
         protected void generate() {
             this.dropSelf(DATE_CRATE.get());
+            this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.add(HCBlocks.HEART_CRYSTAL.get(), lootTable().withPool(
                     lootPool().add(alternatives(lootTableItem(HEART_GEODE.get())
                             .when(hasSilkTouch())
