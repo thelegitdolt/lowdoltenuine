@@ -46,3 +46,9 @@ config="${mod_id}.mixins.json"
     ordering="NONE"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId="heart_crystals"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
