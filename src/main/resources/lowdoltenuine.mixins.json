@@ -4,6 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Debug",
+    "cavernschasms.EquipableMixin",
+    "cavernschasms.PackingContainerMixin",
+    "cavernschasms.TetherPotionMixin",
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
     "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
     "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",

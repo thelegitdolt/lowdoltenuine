@@ -91,6 +91,7 @@ dependencies {
     implementation "com.teamabnormals:blueprint:${project.minecraft_version}-${project.blueprint}"
     implementation "maven.modrinth:caverns-and-chasms:${project.cavernschasms}"
     implementation "maven.modrinth:emi:${project.emi}"
+    implementation "maven.modrinth:farmers-delight:${project.fd}"
     implementation "maven.modrinth:heart_crystals:${project.heartcrystals}"
     implementation "maven.modrinth:quark:${project.quark}"
     implementation "maven.modrinth:zeta:${project.zeta}"
