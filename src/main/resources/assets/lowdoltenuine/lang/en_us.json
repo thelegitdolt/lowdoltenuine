@@ -40,5 +40,6 @@
   "block.lowdoltenuine.aqua_encased_pipe": "Aqua Encased Pipe",
   "block.lowdoltenuine.slate_encased_pipe": "Slate Encased Pipe",
   "block.lowdoltenuine.navy_encased_pipe": "Navy Encased Pipe",
-  "block.lowdoltenuine.indigo_encased_pipe": "Indigo Encased Pipe"
+  "block.lowdoltenuine.indigo_encased_pipe": "Indigo Encased Pipe",
+  "tooltip.lowdoltenuine.item.whenUsed": "When Used:"
 }

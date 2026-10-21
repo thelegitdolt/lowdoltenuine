@@ -10,6 +10,7 @@ import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNDataMaps;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNItemTags;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
+import com.dolthhaven.lowdoltenuine.other.LDTNConfig;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -19,6 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -40,6 +42,8 @@ public class Lowdoltenuine {
         
         bus.addListener(this::dataSetup);
         bus.addListener(this::clientSetup);
+
+        modContainer.registerConfig(ModConfig.Type.COMMON, LDTNConfig.COMMON_SPEC);
     }
 
     private static void registrate(IEventBus bus) {

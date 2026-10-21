@@ -7,6 +7,7 @@
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
     "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
     "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",
+    "heartcrystals.HeartCrystalLampMixin",
     "quark.WoodPostBlockMixin"
   ],
   "client": [
