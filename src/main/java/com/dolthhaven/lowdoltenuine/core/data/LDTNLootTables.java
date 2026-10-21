@@ -1,13 +1,17 @@
 package com.dolthhaven.lowdoltenuine.core.data;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlockFamilies;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.BlockFamily;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -30,6 +34,8 @@ import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
 
 public class LDTNLootTables extends LootTableProvider{
@@ -57,7 +63,8 @@ public class LDTNLootTables extends LootTableProvider{
 
         @Override
         protected void generate() {
-
+            this.dropSelf(STURDY_DEEPSLATE.get());
+            this.forStoneFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
         }
 
         @Override
@@ -68,6 +75,20 @@ public class LDTNLootTables extends LootTableProvider{
         private static <V extends Comparable<V>> LootItemCondition.Builder stateCond(Supplier<? extends Block> block, Property<V> property, V v) {
             return LootItemBlockStatePropertyCondition.hasBlockStateProperties(block.get())
                     .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(property, v.toString()));
+        }
+
+        protected void forStoneFamily(BlockFamily family) {
+            Block base = family.getBaseBlock();
+            Block slab = family.get(BlockFamily.Variant.SLAB);
+            Block stairs = family.get(BlockFamily.Variant.STAIRS);
+            Block chiseled = family.get(BlockFamily.Variant.CHISELED);
+            Block wall = family.get(BlockFamily.Variant.WALL);
+
+            this.dropSelf(base);
+            this.dropSelf(wall);
+            this.dropSelf(chiseled);
+            this.dropSelf(stairs);
+            this.add(slab, this::createSlabItemTable);
         }
     }
 }

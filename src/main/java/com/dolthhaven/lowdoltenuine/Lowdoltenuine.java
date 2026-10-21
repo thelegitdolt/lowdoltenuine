@@ -8,15 +8,18 @@ import com.dolthhaven.lowdoltenuine.core.data.client.LDTNItemModelGen;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNBlockTags;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNDataMaps;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNItemTags;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.mojang.logging.LogUtils;
+import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
@@ -28,10 +31,24 @@ import java.util.concurrent.CompletableFuture;
 public class Lowdoltenuine {
     public static final String MOD_ID = "lowdoltenuine";
     public static final Consts.ModId WRAPPED_ID = new Consts.ModId(MOD_ID);
+    
+    public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public Lowdoltenuine(IEventBus bus, ModContainer modContainer) {
+        registrate(bus);
+        
         bus.addListener(this::dataSetup);
+        bus.addListener(this::clientSetup);
+    }
+
+    private static void registrate(IEventBus bus) {
+        LDTNBlocks.BLOCKS.register(bus);
+        LDTNItems.ITEMS.register(bus);
+    }
+
+    private void clientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(LDTNItems::setUpTabEditors);
     }
 
     private void dataSetup(GatherDataEvent event) {

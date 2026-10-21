@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lowdoltenuine:block/zinc_brick_slab"
+    },
+    "type=double": {
+      "model": "lowdoltenuine:block/zinc_bricks"
+    },
+    "type=top": {
+      "model": "lowdoltenuine:block/zinc_brick_slab_top"
+    }
+  }
+}

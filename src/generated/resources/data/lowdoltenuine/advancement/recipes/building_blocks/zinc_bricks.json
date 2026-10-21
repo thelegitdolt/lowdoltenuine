@@ -1,0 +1,47 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:and",
+      "values": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "quark"
+        },
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "create"
+        }
+      ]
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lowdoltenuine:zinc_bricks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zinc": {
+      "conditions": {
+        "items": [
+          {
+            "items": "create:raw_zinc"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_zinc"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lowdoltenuine:zinc_bricks"
+    ]
+  }
+}

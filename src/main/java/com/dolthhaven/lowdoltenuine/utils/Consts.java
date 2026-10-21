@@ -13,7 +13,14 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 import java.util.Optional;
 
 public class Consts {
+    public static final ModId CREATE = new ModId("create");
+    public static final ModId QUARK = new ModId("quark");
 
+    public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
+
+    public static final ResourceLocation RAW_ZINC = CREATE.rl("raw_zinc");
+    public static final ResourceLocation CREATE_ZINC_BLOCK = CREATE.rl("zinc_block");
+    public static final ResourceLocation CREATE_BUILDING_TAB = CREATE.rl("palettes");
 
     public record ModId(String id) {
         public boolean loaded() {
@@ -30,54 +37,6 @@ public class Consts {
 
         public ModLoadedCondition requiresLoaded() {
             return new ModLoadedCondition(id);
-        }
-
-        public ItemResource itemResource(String path) {
-            return new ItemResource(rl(path));
-        }
-
-        public BlockResource blockResource(String path) {
-            return new BlockResource(rl(path));
-        }
-    }
-
-    public record ItemResource(ResourceLocation loc) {
-        public Item lookup() {
-            return RegUtil.item(loc);
-        }
-
-        public Optional<Item> safeLookup() {
-            return Optional.ofNullable(lookup());
-        }
-
-        public Block getBlock() {
-            return RegUtil.block(loc);
-        }
-
-        public Optional<Block> safeGetBlock() {
-            return Optional.ofNullable(getBlock());
-        }
-
-        public void registerDummy(RegisterEvent event) {
-            event.register(Registries.ITEM, loc, () -> new Item(new Item.Properties()));
-        }
-    }
-
-    public record BlockResource(ResourceLocation loc) {
-        public Block lookup() {
-            return RegUtil.block(loc);
-        }
-
-        public Optional<Block> safeLookup() {
-            return Optional.ofNullable(lookup());
-        }
-
-        public Item getItem() {
-            return RegUtil.item(loc);
-        }
-
-        public Optional<Item> safeGetItem() {
-            return Optional.ofNullable(getItem());
         }
     }
 }

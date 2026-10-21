@@ -1,0 +1,19 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "quark"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "lowdoltenuine:sturdy_deepslate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "minecraft:deepslate"
+  }
+}

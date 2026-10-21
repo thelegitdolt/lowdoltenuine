@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
-    "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin"
+    "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
+    "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin"
   ],
   "injectors": {
     "defaultRequire": 1
