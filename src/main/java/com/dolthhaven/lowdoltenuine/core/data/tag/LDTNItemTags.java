@@ -5,6 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import org.violetmoon.quark.addons.oddities.module.BackpackModule;
 
 public class LDTNItemTags extends ItemTagsProvider {
     public LDTNItemTags(GatherDataEvent event, BlockTagsProvider provider) {
@@ -13,5 +14,6 @@ public class LDTNItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.tag(LDTNTags.HIDES_CAPES).add(BackpackModule.backpack);
     }
 }

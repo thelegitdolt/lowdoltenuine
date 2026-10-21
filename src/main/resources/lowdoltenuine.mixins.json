@@ -6,7 +6,11 @@
     "Debug",
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
     "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
-    "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin"
+    "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",
+    "quark.WoodPostBlockMixin"
+  ],
+  "client": [
+    "quark.CapeLayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
