@@ -1,16 +1,10 @@
 package com.dolthhaven.lowdoltenuine.utils;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
-import net.neoforged.neoforge.registries.RegisterEvent;
-
-import java.util.Optional;
 
 public class Consts {
     public static final ModId CAVERNS_AND_CHASMS = new ModId("caverns_and_chasms");
@@ -19,7 +13,7 @@ public class Consts {
 
     public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
 
-    public static final ResourceLocation RAW_ZINC = CREATE.rl("raw_zinc");
+    public static final ResourceLocation ZINC_INGOT = CREATE.rl("zinc_ingot");
     public static final ResourceLocation CREATE_ZINC_BLOCK = CREATE.rl("zinc_block");
     public static final ResourceLocation CREATE_BUILDING_TAB = CREATE.rl("palettes");
 

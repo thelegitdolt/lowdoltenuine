@@ -35,8 +35,8 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
 
         AndCondition createCCLoaded = and(Consts.CAVERNS_AND_CHASMS.requiresLoaded(), Consts.CREATE.requiresLoaded());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ZINC_BRICKS, 4)
-                .define('z', RegUtil.item(Consts.RAW_ZINC)).define('d', Items.DEEPSLATE)
-                .pattern("zd").pattern("dz").unlockedBy("has_zinc", has(RegUtil.item(Consts.RAW_ZINC)))
+                .define('z', RegUtil.item(Consts.ZINC_INGOT)).define('d', Items.DEEPSLATE)
+                .pattern("zd").pattern("dz").unlockedBy("has_zinc", has(RegUtil.item(Consts.ZINC_INGOT)))
                 .save(output.withConditions(createCCLoaded));
 
         generateRecipes(output.withConditions(createCCLoaded), LDTNBlockFamilies.ZINC_BRICKS_FAMILY);

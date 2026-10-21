@@ -25,7 +25,7 @@ public class LDTNItems {
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                 .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
                 .predicate(LDTNItems::createPredicate)
-                .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS);
+                .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS);
     }
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
