@@ -89,6 +89,9 @@ configurations {
 
 dependencies {
     implementation "com.teamabnormals:blueprint:${project.minecraft_version}-${project.blueprint}"
+    implementation "maven.modrinth:emi:${project.emi}"
+    implementation "maven.modrinth:quark:${project.quark}"
+    implementation "maven.modrinth:zeta:${project.zeta}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

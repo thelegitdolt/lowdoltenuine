@@ -39,26 +39,6 @@ config="${mod_id}.mixins.json"
     ordering="NONE"
     side="BOTH"
 
-[[mixins]]
-    config="${mod_id}.mixins.json"
-
-[[accessTransformers]]
-    file="META-INF/accesstransformer.cfg"
-
-[[dependencies.${mod_id}]] #optional
-    modId="neoforge" #mandatory
-    type="required" #mandatory
-    versionRange="[${neo_version},)" #mandatory
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.${mod_id}]]
-    modId="minecraft"
-    type="required"
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
-
 [[dependencies.${mod_id}]]
     modId="blueprint"
     type="required"
