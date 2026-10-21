@@ -7,10 +7,13 @@ import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulat
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.ItemLike;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredItem;
 
+import java.awt.event.ItemListener;
 import java.util.function.Predicate;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
@@ -19,9 +22,12 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 public class LDTNItems {
     public static final ItemSubRegistryHelper ITEMS = Lowdoltenuine.REGISTRY_HELPER.getItemSubHelper();
 
+    public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new BlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM), new Item.Properties()));
+
     public static void setUpTabEditors() {
         CreativeModeTabContentsPopulator.mod(Lowdoltenuine.MOD_ID)
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
+                    .addItemsAfter(ofMod(Items.AMETHYST_CLUSTER, Consts.HEART_CRYSTALS), HEART_GEODE)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
                     .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
                 .predicate(LDTNItems::createPredicate)
@@ -32,6 +38,10 @@ public class LDTNItems {
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(Consts.CREATE_BUILDING_TAB);
+    }
+
+    public static Predicate<ItemStack> ofMod(ItemLike itemLike, Consts.ModId id) {
+        return (item) -> of(itemLike).test(item) && id.loaded();
     }
 
     public static boolean spawnPredicate(BuildCreativeModeTabContentsEvent event) {

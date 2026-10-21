@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -16,7 +17,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
@@ -37,6 +40,11 @@ public class HeartCrystalMixin extends Item {
     @Unique
     private static final List<MobEffectInstance> BENEFITS = List
             .of(new MobEffectInstance(MobEffects.HEALTH_BOOST, 60 * 8 * 20), new MobEffectInstance(MobEffects.REGENERATION, 15 * 20));
+
+    @Override
+    public InteractionResult useOn(@NotNull UseOnContext context) {
+        return InteractionResult.PASS;
+    }
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)
     private void doEffectsInstead(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {

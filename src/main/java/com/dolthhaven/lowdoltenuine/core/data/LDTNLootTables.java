@@ -3,6 +3,7 @@ package com.dolthhaven.lowdoltenuine.core.data;
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlockFamilies;
 import com.google.common.collect.ImmutableList;
+import com.rosemods.heart_crystals.core.registry.HCBlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.WritableRegistry;
@@ -10,8 +11,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
@@ -35,10 +34,18 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.DATE_CRATE;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.STURDY_DEEPSLATE;
+import static com.dolthhaven.lowdoltenuine.core.registry.LDTNItems.HEART_GEODE;
+import static net.minecraft.world.level.storage.loot.LootPool.lootPool;
+import static net.minecraft.world.level.storage.loot.LootTable.lootTable;
+import static net.minecraft.world.level.storage.loot.entries.AlternativesEntry.alternatives;
+import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableItem;
 
 
 public class LDTNLootTables extends LootTableProvider{
+    private static final Set<Block> MODIFY_WHITELIST = Set.of(HCBlocks.HEART_CRYSTAL.get());
+
     protected static final LootItemCondition.Builder IS_SHEARS = CanItemPerformAbility.canItemPerformAbility(ItemAbilities.SHEARS_HARVEST);
 
     static List<Block> BLOCK_BLACKLIST = ImmutableList.of();
@@ -64,6 +71,10 @@ public class LDTNLootTables extends LootTableProvider{
         @Override
         protected void generate() {
             this.dropSelf(DATE_CRATE.get());
+            this.add(HCBlocks.HEART_CRYSTAL.get(), lootTable().withPool(
+                    lootPool().add(alternatives(lootTableItem(HEART_GEODE.get())
+                            .when(hasSilkTouch())
+                            .otherwise(lootTableItem(HCBlocks.HEART_CRYSTAL.asItem()))))));
 
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.forStoneFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
@@ -71,7 +82,9 @@ public class LDTNLootTables extends LootTableProvider{
 
         @Override
         public Iterable<Block> getKnownBlocks() {
-            return BuiltInRegistries.BLOCK.stream().filter(block -> Lowdoltenuine.MOD_ID.equals(BuiltInRegistries.BLOCK.getKey(block).getNamespace())).filter(block -> !BLOCK_BLACKLIST.contains(block)).collect(Collectors.toSet());
+            return BuiltInRegistries.BLOCK.stream().filter(block -> {
+                return Lowdoltenuine.MOD_ID.equals(BuiltInRegistries.BLOCK.getKey(block).getNamespace()) || MODIFY_WHITELIST.contains(block);
+            }).filter(block -> !BLOCK_BLACKLIST.contains(block)).collect(Collectors.toSet());
         }
 
         private static <V extends Comparable<V>> LootItemCondition.Builder stateCond(Supplier<? extends Block> block, Property<V> property, V v) {

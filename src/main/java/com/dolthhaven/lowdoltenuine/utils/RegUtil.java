@@ -5,6 +5,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 public class RegUtil {
     public static Item item(ResourceLocation location) {
@@ -34,6 +35,12 @@ public class RegUtil {
         if (BuiltInRegistries.BLOCK.keySet().contains(location)) {
             return BuiltInRegistries.BLOCK.get(location);
         } else return null;
+    }
+
+    public static Block blockOrSlop(ResourceLocation location) {
+        if (BuiltInRegistries.BLOCK.keySet().contains(location)) {
+            return BuiltInRegistries.BLOCK.get(location);
+        } else return Blocks.ACACIA_BUTTON;
     }
 
     public static Block block(String namespace, String path) {
