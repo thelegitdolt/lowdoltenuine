@@ -12,6 +12,7 @@
     "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",
     "heartcrystals.HeartCrystalLampMixin",
     "heartcrystals.HeartCrystalMixin",
+    "neapolitan.BlockBehaviorMixin",
     "quark.WoodPostBlockMixin",
     "woodworks.RecipeManagerMixin"
   ],

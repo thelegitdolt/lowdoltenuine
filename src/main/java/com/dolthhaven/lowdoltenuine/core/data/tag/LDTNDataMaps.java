@@ -1,5 +1,6 @@
 package com.dolthhaven.lowdoltenuine.core.data.tag;
 
+import com.dolthhaven.lowdoltenuine.utils.Consts;
 import net.minecraft.core.HolderLookup;
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -17,5 +18,9 @@ public class LDTNDataMaps extends DataMapProvider {
     protected void gather(HolderLookup.Provider provider) {
         this.builder(NeoForgeDataMaps.COMPOSTABLES)
                 .add(DATE_CRATE.getId(), new Compostable(1f), false);
+
+        this.builder(LDTNTags.Datamaps.COMPOSTABLE_ENTITIES)
+                .conditions(Consts.NEAPOLITAN.requiresLoaded())
+                .add(Consts.BANANA_PEEL, new Compostable(0.5f), false);
     }
 }
