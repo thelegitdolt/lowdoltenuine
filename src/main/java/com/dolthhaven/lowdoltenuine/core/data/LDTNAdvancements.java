@@ -29,7 +29,6 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
 
     @Override
     public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer, ExistingFileHelper existingFileHelper) {
-
     }
 
     private static Advancement.Builder createAdvancement(String name, String category, ResourceLocation parent, Supplier<Item> icon, AdvancementType frame, boolean showToast, boolean announceToChat, boolean hidden) {

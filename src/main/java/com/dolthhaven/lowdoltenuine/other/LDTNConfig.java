@@ -14,6 +14,10 @@ public class LDTNConfig {
         // mowzies
         public final ModConfigSpec.ConfigValue<Boolean> hoesRakeSand;
 
+        //Woodworks
+        public final ModConfigSpec.ConfigValue<Boolean> replaceSawmillWithStonecutter;
+
+
         // heart crystals
         public final ModConfigSpec.ConfigValue<Boolean> heartCrystalsAreDifferent;
         public final ModConfigSpec.ConfigValue<Boolean> heartLanternsDontGiveRegen;
@@ -66,9 +70,16 @@ public class LDTNConfig {
             builder.pop();
             builder.pop();
 
+            builder.push("Woodworks");
+            builder.push("Stonecutter");
+            replaceSawmillWithStonecutter = builder.comment("If Woodworks is loaded, whether all sawmill " +
+                    "recipes should becomes stonecutter recipes instead.").define("Stonecutter more like woodcutter am I right", false);
+            builder.pop();
+            builder.pop();
+
 
             builder.push("heart_crystals");
-            builder.push("heart_crystal");
+            builder.push("Heart Crystals");
             heartCrystalsAreDifferent = builder.comment("If heart crystals from the heart crystals mod should give the Health Boost effect and regen for awhile instead of giving you permanent hearts")
                     .define("Impermanent Hearts", false);
             heartLanternsDontGiveRegen = builder.comment("If heart lanterns should no longer be a source of the regeneration effect.")

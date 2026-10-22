@@ -1,4 +1,4 @@
-package com.dolthhaven.lowdoltenuine.integration.emi;
+package com.dolthhaven.lowdoltenuine.integration;
 
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.google.common.base.Suppliers;

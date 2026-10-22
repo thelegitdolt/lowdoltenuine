@@ -13,6 +13,7 @@ public class Consts {
     public static final ModId HEART_CRYSTALS = new ModId("heart_crystals");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId SPAWN = new ModId("spawn");
+    public static final ModId WOODWORKS = new ModId("woodworks");
 
 
 

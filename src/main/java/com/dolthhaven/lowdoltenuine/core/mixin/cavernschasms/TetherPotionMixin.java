@@ -1,6 +1,6 @@
 package com.dolthhaven.lowdoltenuine.core.mixin.cavernschasms;
 
-import com.dolthhaven.lowdoltenuine.integration.emi.DungeonsDelightIntegration;
+import com.dolthhaven.lowdoltenuine.integration.DungeonsDelightIntegration;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.teamabnormals.caverns_and_chasms.common.item.TetherPotionItem;
 import net.minecraft.core.Holder;

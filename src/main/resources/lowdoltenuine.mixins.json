@@ -12,7 +12,8 @@
     "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",
     "heartcrystals.HeartCrystalLampMixin",
     "heartcrystals.HeartCrystalMixin",
-    "quark.WoodPostBlockMixin"
+    "quark.WoodPostBlockMixin",
+    "woodworks.RecipeManagerMixin"
   ],
   "client": [
     "quark.CapeLayerMixin"
