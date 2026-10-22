@@ -1,0 +1,24 @@
+{
+  "conditions": [
+    {
+      "type": "environmental:mod_loaded",
+      "modid": "spawn"
+    },
+    {
+      "type": "environmental:event",
+      "events": [
+        "spawn",
+        "breed"
+      ]
+    },
+    {
+      "type": "environmental:in_biome_key",
+      "biome": "spawn:seagrass_meadow"
+    }
+  ],
+  "description": {
+    "translate": "slabfish_variant.lowdoltenuine.seagrass_meadow"
+  },
+  "priority": 5,
+  "texture": "lowdoltenuine:variant/seagrass_meadow"
+}

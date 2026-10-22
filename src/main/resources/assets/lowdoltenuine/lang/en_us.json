@@ -43,5 +43,10 @@
   "block.lowdoltenuine.slate_encased_pipe": "Slate Encased Pipe",
   "block.lowdoltenuine.navy_encased_pipe": "Navy Encased Pipe",
   "block.lowdoltenuine.indigo_encased_pipe": "Indigo Encased Pipe",
-  "tooltip.lowdoltenuine.item.whenUsed": "When Used:"
+  "tooltip.lowdoltenuine.item.whenUsed": "When Used:",
+
+  "slabfish_variant.lowdoltenuine.glimmering_weald": "Glimmering Weald",
+  "slabfish_variant.lowdoltenuine.seagrass_meadow": "Seagrass Meadow",
+  "slabfish_variant.lowdoltenuine.ant_gardens": "Ant Gardens",
+  "slabfish_variant.lowdoltenuine.blasted_barrens": "Blasted Barrens"
 }
