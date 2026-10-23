@@ -14,6 +14,7 @@ public class Consts {
     public static final ModId DYE_DEPOT = new ModId("dye_depot");
     public static final ModId ENVIRONMENTAL = new ModId("environmental");
     public static final ModId HEART_CRYSTALS = new ModId("heart_crystals");
+    public static final ModId JNE = new ModId("netherexp");
     public static final ModId MINECRAFT = new ModId("minecraft");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
@@ -28,6 +29,8 @@ public class Consts {
 
     public static final ResourceLocation MONSTER_YAM = DUNGEONS_DELIGHT.rl("monster_yam");
     public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
+
+    public static final ResourceLocation BONE_PIKE = JNE.rl("bone_pike");
     public static final ResourceLocation SPAWN_DATES = SPAWN.rl("dates");
 
     public static final ResourceLocation ZINC_INGOT = CREATE.rl("zinc_ingot");

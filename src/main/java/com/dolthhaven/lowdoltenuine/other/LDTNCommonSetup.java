@@ -1,15 +1,33 @@
 package com.dolthhaven.lowdoltenuine.other;
 
+import com.dolthhaven.lowdoltenuine.utils.Consts;
+import com.dolthhaven.lowdoltenuine.utils.RegUtil;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Supplier;
+
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
 public class LDTNCommonSetup {
+    public static final Map<Item, Pair<Supplier<Boolean>, BlockItem>> ITEM_PLACE_MAP = new HashMap<>();
+
     public static void registerData() {
         registerPipes();
+        registerBlockPlacing();
+    }
+
+    public static void registerBlockPlacing() {
+        putIfNotNull(ITEM_PLACE_MAP, Items.BONE, LDTNConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
+                (BlockItem) RegUtil.item(Consts.BONE_PIKE));
     }
 
     private static void registerPipes() {
@@ -47,5 +65,9 @@ public class LDTNCommonSetup {
         block.add(NAVY_ENCASED_PIPE.get());
         block.add(INDIGO_ENCASED_PIPE.get());
         PipesModule.blockEntityType.validBlocks = block;
+    }
+
+    private static <A, B, C> void putIfNotNull(Map<A, Pair<B, C>> map, A key, B val, C thing) {
+        if (key != null && val != null && thing != null) map.put(key, Pair.of(val, thing));
     }
 }

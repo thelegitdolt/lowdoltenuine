@@ -52,3 +52,23 @@ description='''
     ordering="AFTER"
     side="BOTH"
 
+[[dependencies.${mod_id}]]
+    modId="upgrade_aquatic"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="environmental"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="atmospheric"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
+
+

@@ -39,7 +39,7 @@ public class LDTNBlocks {
     public static final DeferredBlock<Block> POTTED_TALL_BEACHGRASS = customPot("tall_beachgrass", Consts.TALL_BEACHGRASS);
     public static final DeferredBlock<Block> POTTED_MYCELIUM_SPROUTS = customPot("mycelium_sprouts", Consts.MYCELIUM_SPROUTS);
 
-
+    
     public static final DeferredBlock<Block> WHITE_ENCASED_PIPE = BLOCKS.createBlock("white_encased_pipe", () -> new EncasedPipeBlock(null));
     public static final DeferredBlock<Block> BROWN_ENCASED_PIPE = BLOCKS.createBlock("brown_encased_pipe", () -> new EncasedPipeBlock(null));
     public static final DeferredBlock<Block> GRAY_ENCASED_PIPE = BLOCKS.createBlock("gray_encased_pipe", () -> new EncasedPipeBlock(null));
