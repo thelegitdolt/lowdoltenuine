@@ -16,14 +16,14 @@ displayName="${mod_name}" #mandatory
 authors="DoltHHaven"
 
 description='''
-Adds some miscellaneous tweaks to mods 
+    Adds some miscellaneous tweaks to mods
 '''
 
 [[mixins]]
-config="${mod_id}.mixins.json"
+    config="${mod_id}.mixins.json"
 
-#[[accessTransformers]]
-#file="META-INF/accesstransformer.cfg"
+[[accessTransformers]]
+    file="accesstransformer.cfg"
 
 [[dependencies.${mod_id}]] #optional
     modId="neoforge" #mandatory

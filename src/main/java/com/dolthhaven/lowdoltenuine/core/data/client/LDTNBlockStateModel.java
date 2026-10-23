@@ -39,7 +39,6 @@ public class LDTNBlockStateModel extends BlueprintBlockStateProvider {
         slabBlock(base, slab);
     }
 
-
     private ResourceLocation id(Block block) {
         return BuiltInRegistries.BLOCK.getKey(block);
     }

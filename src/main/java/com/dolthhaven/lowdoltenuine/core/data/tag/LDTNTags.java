@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
@@ -21,6 +22,19 @@ public class LDTNTags {
 
     private static TagKey<Item> externalItemTag(String modId, String path) {
         return TagUtil.itemTag(modId, path);
+    }
+
+    public static class Blocks {
+        public static final TagKey<Block> ENCASED_PIPE_BLOCKS = blockTag("encased_pipes_blocks");
+
+        private static TagKey<Block> blockTag(String path) {
+            return externalBlockTag(Lowdoltenuine.MOD_ID, path);
+        }
+
+        private static TagKey<Block> externalBlockTag(String modId, String path) {
+            return TagUtil.blockTag(modId, path);
+        }
+
     }
 
     @EventBusSubscriber(modid = Lowdoltenuine.MOD_ID)

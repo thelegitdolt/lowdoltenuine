@@ -11,7 +11,9 @@ public class Consts {
     public static final ModId CAVERNS_AND_CHASMS = new ModId("caverns_and_chasms");
     public static final ModId CREATE = new ModId("create");
     public static final ModId DUNGEONS_DELIGHT = new ModId("dungeonsdelight");
+    public static final ModId DYE_DEPOT = new ModId("dye_depot");
     public static final ModId HEART_CRYSTALS = new ModId("heart_crystals");
+    public static final ModId MINECRAFT = new ModId("minecraft");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
     public static final ModId SPAWN = new ModId("spawn");

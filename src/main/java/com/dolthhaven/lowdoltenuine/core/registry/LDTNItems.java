@@ -25,7 +25,7 @@ public class LDTNItems {
     public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new CustomLangBlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static void setUpTabEditors() {
-        CreativeModeTabContentsPopulator.mod(Lowdoltenuine.MOD_ID)
+        var creativeTabs = CreativeModeTabContentsPopulator.mod(Lowdoltenuine.MOD_ID)
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                     .addItemsAfter(ofMod(Items.AMETHYST_CLUSTER, Consts.HEART_CRYSTALS), HEART_GEODE)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
@@ -37,6 +37,17 @@ public class LDTNItems {
                     .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
                 .predicate(LDTNItems::spawnPredicate)
                     .addItemsAfter(ofID(Consts.SPAWN_DATES, Consts.SPAWN.id()), DATE_CRATE);
+
+        creativeTabs.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+                .addItems(WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
+                        YELLOW_ENCASED_PIPE, LIME_ENCASED_PIPE, GREEN_ENCASED_PIPE, BLUE_ENCASED_PIPE, LIGHT_BLUE_ENCASED_PIPE, CYAN_ENCASED_PIPE, PURPLE_ENCASED_PIPE,
+                        MAGENTA_ENCASED_PIPE, PINK_ENCASED_PIPE, BLACK_ENCASED_PIPE);
+
+        if (Consts.DYE_DEPOT.loaded()) {
+            creativeTabs.addItems(ROSE_ENCASED_PIPE, MAROON_ENCASED_PIPE, GINGER_ENCASED_PIPE, TAN_ENCASED_PIPE,
+                    BEIGE_ENCASED_PIPE, CORAL_ENCASED_PIPE, OLIVE_ENCASED_PIPE, FOREST_ENCASED_PIPE, VERDANT_ENCASED_PIPE, AMBER_ENCASED_PIPE,
+                    TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE);
+        }
     }
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {

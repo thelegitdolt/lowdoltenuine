@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lowdoltenuine:forest_encased_pipe"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "lowdoltenuine:blocks/forest_encased_pipe"
+}

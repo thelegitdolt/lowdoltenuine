@@ -10,6 +10,8 @@ import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNDataMaps;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNItemTags;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
+import com.dolthhaven.lowdoltenuine.other.LDTNClientSetup;
+import com.dolthhaven.lowdoltenuine.other.LDTNCommonSetup;
 import com.dolthhaven.lowdoltenuine.other.LDTNConfig;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.mojang.logging.LogUtils;
@@ -22,6 +24,7 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
@@ -39,7 +42,8 @@ public class Lowdoltenuine {
 
     public Lowdoltenuine(IEventBus bus, ModContainer modContainer) {
         registrate(bus);
-        
+
+        bus.addListener(this::commonSetup);
         bus.addListener(this::dataSetup);
         bus.addListener(this::clientSetup);
 
@@ -51,8 +55,15 @@ public class Lowdoltenuine {
         LDTNItems.ITEMS.register(bus);
     }
 
+    private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(LDTNCommonSetup::registerData);
+    }
+
     private void clientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(LDTNItems::setUpTabEditors);
+        event.enqueueWork(() -> {
+            LDTNItems.setUpTabEditors();
+            LDTNClientSetup.clientCompat();
+        });
     }
 
     private void dataSetup(GatherDataEvent event) {

@@ -47,6 +47,7 @@ neoForge {
         minecraftVersion = project.parchment_minecraft_version
     }
 
+    accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
             client()
@@ -66,7 +67,7 @@ neoForge {
 
         data {
             data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing-mod', 'heart_crystals', '--existing', file('src/main/resources/').getAbsolutePath()
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing-mod', 'heart_crystals', '--existing-mod', 'dye_depot', '--existing-mod', 'quark', '--existing', file('src/main/resources/').getAbsolutePath()
         }
 
         configureEach {
@@ -90,12 +91,16 @@ configurations {
 dependencies {
     implementation "com.teamabnormals:blueprint:${project.minecraft_version}-${project.blueprint}"
     implementation "maven.modrinth:caverns-and-chasms:${project.cavernschasms}"
+    implementation "maven.modrinth:dye-depot:${project.dyedepot}"
     implementation "maven.modrinth:emi:${project.emi}"
     implementation "maven.modrinth:farmers-delight:${project.fd}"
+//    implementation "maven.modrinth:opposing-force:${project.oppforce}"
+//    implementation "maven.modrinth:sinew:${project.sinew}"
     implementation "maven.modrinth:heart_crystals:${project.heartcrystals}"
     implementation "maven.modrinth:quark:${project.quark}"
     implementation "maven.modrinth:zeta:${project.zeta}"
 }
+
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
@@ -115,6 +120,11 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 }
 sourceSets.main.resources.srcDir generateModMetadata
 neoForge.ideSyncTask generateModMetadata
+
+
+tasks.named('createMinecraftArtifacts') {
+    dependsOn tasks.named('generateModMetadata')
+}
 
 publishing {
     publications {

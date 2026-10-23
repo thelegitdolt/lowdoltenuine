@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "quark:pipe"
+    },
+    {
+      "item": "dye_depot:olive_stained_glass"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "lowdoltenuine:olive_encased_pipe"
+  }
+}

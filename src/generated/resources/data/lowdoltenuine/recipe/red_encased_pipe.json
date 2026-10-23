@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "quark:pipe"
+    },
+    {
+      "item": "minecraft:red_stained_glass"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "lowdoltenuine:red_encased_pipe"
+  }
+}
