@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
@@ -23,6 +24,9 @@ public class LDTNBlockStateModel extends BlueprintBlockStateProvider {
         block(HEART_CRYSTAL_LAMP);
         directionalBlockSharedSide(DATE_CRATE, DATE_CRATE);
         forDefaultBlockFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
+
+        customPot(POTTED_ARID_SPROUTS, POTTED_MYCELIUM_SPROUTS, POTTED_BEACHGRASS,
+                POTTED_TALL_BEACHGRASS);
     }
 
     private void forDefaultBlockFamily(BlockFamily family) {
@@ -45,5 +49,14 @@ public class LDTNBlockStateModel extends BlueprintBlockStateProvider {
 
     private void basicItemWithWeirdPath(String name, ResourceLocation location) {
         this.itemModels().getBuilder(name).parent(new ModelFile.UncheckedModelFile("item/generated")).texture("layer0", location);
+    }
+
+    @SafeVarargs
+    private void customPot(DeferredBlock<? extends Block>... pots) {
+        for (DeferredBlock<? extends Block> pot : pots) {
+            ResourceLocation potTexture = Lowdoltenuine.rl("block/" + name(pot.get()));
+            this.simpleBlock(pot.get(), models()
+                    .singleTexture(name(pot.get()), ResourceLocation.withDefaultNamespace("block/flower_pot_cross"), "plant", potTexture).renderType("cutout"));
+        }
     }
 }

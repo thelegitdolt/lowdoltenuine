@@ -30,6 +30,8 @@ public class LDTNBlockTags extends BlockTagsProvider {
                 BEIGE_ENCASED_PIPE.get(), CORAL_ENCASED_PIPE.get(), OLIVE_ENCASED_PIPE.get(), FOREST_ENCASED_PIPE.get(), VERDANT_ENCASED_PIPE.get(), AMBER_ENCASED_PIPE.get(),
                 TEAL_ENCASED_PIPE.get(), MINT_ENCASED_PIPE.get(), AQUA_ENCASED_PIPE.get(), SLATE_ENCASED_PIPE.get(), NAVY_ENCASED_PIPE.get(), INDIGO_ENCASED_PIPE.get());
 
+        this.tag(BlockTags.FLOWER_POTS).add(POTTED_BEACHGRASS.get(), POTTED_MYCELIUM_SPROUTS.get(), POTTED_TALL_BEACHGRASS.get(), POTTED_ARID_SPROUTS.get());
+
         this.tag(LDTNTags.Blocks.QUARK_PIPES).addTags(LDTNTags.Blocks.ENCASED_PIPE_BLOCKS);
     }
 }

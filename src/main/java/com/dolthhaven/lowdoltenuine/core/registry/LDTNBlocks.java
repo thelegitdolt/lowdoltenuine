@@ -1,13 +1,19 @@
 package com.dolthhaven.lowdoltenuine.core.registry;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
+import com.dolthhaven.lowdoltenuine.common.block.BlockWithOneString;
+import com.dolthhaven.lowdoltenuine.utils.Consts;
+import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
+import com.teamabnormals.blueprint.core.util.PropertyUtil;
 import com.teamabnormals.blueprint.core.util.registry.BlockSubRegistryHelper;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
 
@@ -27,6 +33,11 @@ public class LDTNBlocks {
     public static final DeferredBlock<Block> ZINC_BRICK_SLAB = BLOCKS.createBlock("zinc_brick_slab", () -> new SlabBlock(ZINC_PLATED_BRICKS));
     public static final DeferredBlock<Block> ZINC_BRICK_WALL = BLOCKS.createBlock("zinc_brick_wall", () -> new WallBlock(ZINC_PLATED_BRICKS));
     public static final DeferredBlock<Block> CHISELED_ZINC_BRICKS = BLOCKS.createBlock("chiseled_zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
+
+    public static final DeferredBlock<Block> POTTED_ARID_SPROUTS = customPot("arid_sprouts", Consts.ARID_SPROUTS);
+    public static final DeferredBlock<Block> POTTED_BEACHGRASS = customPot("beachgrass", Consts.BEACHGRASS);
+    public static final DeferredBlock<Block> POTTED_TALL_BEACHGRASS = customPot("tall_beachgrass", Consts.TALL_BEACHGRASS);
+    public static final DeferredBlock<Block> POTTED_MYCELIUM_SPROUTS = customPot("mycelium_sprouts", Consts.MYCELIUM_SPROUTS);
 
 
     public static final DeferredBlock<Block> WHITE_ENCASED_PIPE = BLOCKS.createBlock("white_encased_pipe", () -> new EncasedPipeBlock(null));
@@ -62,6 +73,12 @@ public class LDTNBlocks {
     public static final DeferredBlock<Block> NAVY_ENCASED_PIPE = BLOCKS.createBlock("navy_encased_pipe", () -> new EncasedPipeBlock(null));
     public static final DeferredBlock<Block> INDIGO_ENCASED_PIPE = BLOCKS.createBlock("indigo_encased_pipe", () -> new EncasedPipeBlock(null));
 
+    private static DeferredBlock<Block> customPot(String name, ResourceLocation resource) {
+        if (ModList.get().isLoaded(resource.getNamespace())){
+            return BLOCKS.createBlockNoItem("potted_" + name, () -> new FlowerPotBlock(RegUtil.block(resource), PropertyUtil.flowerPot()));
+        }
+        return BLOCKS.createBlockNoItem("potted_" + name, () -> new BlockWithOneString(resource.toString(), PropertyUtil.flowerPot()));
+    }
 
     public static class LDTNBlockProps {
         public static final BlockBehaviour.Properties STURDY_DEEPSLATE_PROPS = BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(4.5F, 9.0F).pushReaction(PushReaction.IGNORE);

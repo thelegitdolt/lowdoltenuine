@@ -34,7 +34,6 @@ import vectorwing.farmersdelight.common.utility.ItemUtils;
 @Pseudo
 @Mixin(BasePipeBlock.class)
 public abstract class BasePipeBlockMixin {
-
     @Inject(method = "useItemOn", at = @At(value = "HEAD"), cancellable = true)
     private void sex(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit, CallbackInfoReturnable<ItemInteractionResult> cir) {
         if (PipesModule.enableEncasedPipes && stack.is(ItemTags.PICKAXES)) {

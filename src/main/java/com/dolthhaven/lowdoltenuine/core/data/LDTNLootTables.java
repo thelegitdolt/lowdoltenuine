@@ -1,7 +1,9 @@
 package com.dolthhaven.lowdoltenuine.core.data;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
+import com.dolthhaven.lowdoltenuine.common.block.BlockWithOneString;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlockFamilies;
+import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.google.common.collect.ImmutableList;
 import com.rosemods.heart_crystals.core.registry.HCBlocks;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -11,22 +13,28 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.loot.CanItemPerformAbility;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.List;
 import java.util.Set;
@@ -79,7 +87,23 @@ public class LDTNLootTables extends LootTableProvider{
             this.dropSelf(STURDY_DEEPSLATE.get());
             this.forStoneFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
 
+            this.dropReallyWeirdPottedContents(POTTED_TALL_BEACHGRASS);
+            this.dropReallyWeirdPottedContents(POTTED_BEACHGRASS);
+            this.dropReallyWeirdPottedContents(POTTED_ARID_SPROUTS);
+            this.dropReallyWeirdPottedContents(POTTED_MYCELIUM_SPROUTS);
+
             this.pipes();
+        }
+
+        private void dropReallyWeirdPottedContents(DeferredBlock<Block> block) {
+            Lowdoltenuine.LOGGER.info("I'm REALLY sorry tslat");
+            if (block.get() instanceof BlockWithOneString stringBlock) {
+                Item item = RegUtil.item(ResourceLocation.parse(stringBlock.getTheString()));
+                this.add(block.get(), lootTable().withPool(this.applyExplosionCondition(Blocks.FLOWER_POT, lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(Blocks.FLOWER_POT)))).withPool(this.applyExplosionCondition(item, LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(item)))));
+            } else if (block.get() instanceof FlowerPotBlock) {
+                dropPottedContents(block.get());
+            } else throw new IllegalArgumentException("this is too weird even for this method");
         }
 
         @Override

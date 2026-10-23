@@ -1,7 +1,6 @@
 package com.dolthhaven.lowdoltenuine.core.registry;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
-import com.dolthhaven.lowdoltenuine.common.block.CustomLangBlockItem;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.teamabnormals.blueprint.core.util.item.CreativeModeTabContentsPopulator;
@@ -22,7 +21,7 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 public class LDTNItems {
     public static final ItemSubRegistryHelper ITEMS = Lowdoltenuine.REGISTRY_HELPER.getItemSubHelper();
 
-    public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new CustomLangBlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM), new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new ItemNameBlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static void setUpTabEditors() {
         var creativeTabs = CreativeModeTabContentsPopulator.mod(Lowdoltenuine.MOD_ID)

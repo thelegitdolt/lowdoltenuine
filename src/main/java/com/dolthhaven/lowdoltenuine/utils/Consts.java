@@ -1,6 +1,5 @@
 package com.dolthhaven.lowdoltenuine.utils;
 
-import com.ibm.icu.text.Collator;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -8,15 +7,18 @@ import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public class Consts {
+    public static final ModId ATMOSPHERIC = new ModId("atmospheric");
     public static final ModId CAVERNS_AND_CHASMS = new ModId("caverns_and_chasms");
     public static final ModId CREATE = new ModId("create");
     public static final ModId DUNGEONS_DELIGHT = new ModId("dungeonsdelight");
     public static final ModId DYE_DEPOT = new ModId("dye_depot");
+    public static final ModId ENVIRONMENTAL = new ModId("environmental");
     public static final ModId HEART_CRYSTALS = new ModId("heart_crystals");
     public static final ModId MINECRAFT = new ModId("minecraft");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
     public static final ModId SPAWN = new ModId("spawn");
+    public static final ModId UPGRADE_AQUATIC = new ModId("upgrade_aquatic");
     public static final ModId WOODWORKS = new ModId("woodworks");
 
 
@@ -33,6 +35,10 @@ public class Consts {
     public static final ResourceLocation CREATE_BUILDING_TAB = CREATE.rl("palettes");
 
     public static final ResourceLocation SPAWN_ITEM_TAB = SPAWN.rl("item_group");
+    public static final ResourceLocation ARID_SPROUTS = ATMOSPHERIC.rl("arid_sprouts");
+    public static final ResourceLocation BEACHGRASS = UPGRADE_AQUATIC.rl("beachgrass");
+    public static final ResourceLocation TALL_BEACHGRASS = UPGRADE_AQUATIC.rl("tall_beachgrass");
+    public static final ResourceLocation MYCELIUM_SPROUTS = ENVIRONMENTAL.rl("mycelium_sprouts");
 
     public record ModId(String id) {
         public boolean loaded() {
