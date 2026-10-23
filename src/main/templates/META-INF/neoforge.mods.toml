@@ -59,6 +59,12 @@ description='''
     side="BOTH"
 
 [[dependencies.${mod_id}]]
+    modId="netherexp"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="environmental"
     type="optional"
     ordering="AFTER"
