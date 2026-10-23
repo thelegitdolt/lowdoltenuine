@@ -14,18 +14,26 @@ import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 
 public class LDTNTags {
-    public static final TagKey<Item> HIDES_CAPES = itemTag("hides_capes");
+    public static class Items {
+        public static final TagKey<Item> ENCASED_PIPE_BLOCKS = itemTag("encased_pipes_blocks");
 
-    private static TagKey<Item> itemTag(String path) {
-        return externalItemTag(Lowdoltenuine.MOD_ID, path);
+        public static final TagKey<Item> HIDES_CAPES = itemTag("hides_capes");
+
+        private static TagKey<Item> itemTag(String path) {
+            return externalItemTag(Lowdoltenuine.MOD_ID, path);
+        }
+
+        private static TagKey<Item> externalItemTag(String modId, String path) {
+            return TagUtil.itemTag(modId, path);
+        }
     }
 
-    private static TagKey<Item> externalItemTag(String modId, String path) {
-        return TagUtil.itemTag(modId, path);
-    }
 
     public static class Blocks {
         public static final TagKey<Block> ENCASED_PIPE_BLOCKS = blockTag("encased_pipes_blocks");
+
+        public static final TagKey<Block> QUARK_PIPES = externalBlockTag("quark", "pipes");
+
 
         private static TagKey<Block> blockTag(String path) {
             return externalBlockTag(Lowdoltenuine.MOD_ID, path);

@@ -10,6 +10,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -17,19 +18,21 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.violetmoon.quark.addons.oddities.block.pipe.BasePipeBlock;
 import org.violetmoon.quark.addons.oddities.block.pipe.CopperPipeBlock;
 
+@Pseudo
 @Mixin(CopperPipeBlock.class)
 public class CopperPipeBlockMixin {
     @ModifyExpressionValue(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"))
     private boolean thing(boolean original, @Share("color") LocalRef<String> colorHolder, @Local ItemStack stack) {
         if (!original) {
-            String colorMaybe = DyeDepotIntegration.getDyeFromName(RegUtil.itemId(stack.getItem()).getPath().replace("_stained_glass", ""));
+            ResourceLocation colorMaybe = DyeDepotIntegration.getDyeFromName(RegUtil.itemId(stack.getItem()).getPath().replace("_stained_glass", ""));
             if (colorMaybe == null) {
                 return false;
-            } colorHolder.set(colorMaybe);
+            } colorHolder.set(colorMaybe.getPath());
         } return true;
     }
 
@@ -51,7 +54,6 @@ public class CopperPipeBlockMixin {
 
     @WrapOperation(method = "useItemOn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;updateNeighborsAt(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/Block;)V"))
     private void hi(Level instance, BlockPos pos, Block block, Operation<Void> original, @Share("color") LocalRef<String> colorHolder) {
-        original.call(instance, pos,
-                colorHolder.get() == null ? block : RegUtil.block(Lowdoltenuine.rl(colorHolder.get() + "_encased_pipe")));
+        original.call(instance, pos, colorHolder.get() == null ? block : RegUtil.block(Lowdoltenuine.rl(colorHolder.get() + "_encased_pipe")));
     }
 }

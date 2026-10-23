@@ -54,12 +54,14 @@ public class DyeDepotIntegration {
         }
     }
 
-    public static String getDyeFromName(String dye) {
-        if (getVanillaDye(dye) == null) {
-            if (getDyeDepotDye(dye) == null) {
-                return null;
-            }
-        }  return dye;
+    public static ResourceLocation getDyeFromName(String dye) {
+        if (getVanillaDye(dye) != null) {
+            return Consts.MINECRAFT.rl(dye);
+        }
+        if (getDyeDepotDye(dye) != null) {
+            return Consts.DYE_DEPOT.rl(dye);
+        }
+        return null;
     }
 
     public enum DyeDepotDyes implements StringRepresentable {

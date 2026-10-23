@@ -1,6 +1,7 @@
 package com.dolthhaven.lowdoltenuine.core.data.tag;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -14,6 +15,7 @@ public class LDTNItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        this.tag(LDTNTags.HIDES_CAPES).add(BackpackModule.backpack);
+        this.tag(LDTNTags.Items.HIDES_CAPES).add(BackpackModule.backpack);
+        this.copy(LDTNTags.Blocks.ENCASED_PIPE_BLOCKS, LDTNTags.Items.ENCASED_PIPE_BLOCKS);
     }
 }

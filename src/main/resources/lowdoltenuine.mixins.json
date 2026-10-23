@@ -13,6 +13,7 @@
     "heartcrystals.HeartCrystalLampMixin",
     "heartcrystals.HeartCrystalMixin",
     "neapolitan.BlockBehaviorMixin",
+    "quark.BasePipeBlockMixin",
     "quark.CopperPipeBlockMixin",
     "quark.MakePipesLookGoodMixin",
     "quark.WoodPostBlockMixin",

@@ -39,7 +39,7 @@ public class LDTNItemModelGen extends BlueprintItemModelProvider {
         for (ResourceLocation dyeColor : DyeDepotIntegration.DYES.get()) {
             ResourceLocation pipeLoc = Lowdoltenuine.rl(dyeColor.getPath() + "_encased_pipe");
             ResourceLocation glassLoc = dyeColor.withSuffix("_stained_glass");
-            this.withExistingParent(pipeLoc.getPath(), Consts.QUARK.rl("item/encased_pipe"))
+            this.withExistingParent(pipeLoc.getPath(), Lowdoltenuine.rl("item/encased_pipe_no_zfight"))
                     .texture("glass", glassLoc.withPath(a -> "block/" + a));
         }
     }

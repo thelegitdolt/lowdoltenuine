@@ -1,5 +1,5 @@
 {
-  "parent": "quark:item/encased_pipe",
+  "parent": "lowdoltenuine:item/encased_pipe_no_zfight",
   "textures": {
     "glass": "minecraft:block/light_gray_stained_glass"
   }

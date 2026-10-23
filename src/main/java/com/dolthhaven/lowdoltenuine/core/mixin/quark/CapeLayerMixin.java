@@ -15,6 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CapeLayerMixin {
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/client/player/AbstractClientPlayer;FFFFFF)V", at = @At("HEAD"), cancellable = true)
     private void sex(PoseStack p_116615_, MultiBufferSource p_116616_, int p_116617_, AbstractClientPlayer player, float p_116619_, float p_116620_, float p_116621_, float p_116622_, float p_116623_, float p_116624_, CallbackInfo ci) {
-        if (player.getItemBySlot(EquipmentSlot.CHEST).is(LDTNTags.HIDES_CAPES)) ci.cancel();
+        if (player.getItemBySlot(EquipmentSlot.CHEST).is(LDTNTags.Items.HIDES_CAPES)) ci.cancel();
     }
 }
