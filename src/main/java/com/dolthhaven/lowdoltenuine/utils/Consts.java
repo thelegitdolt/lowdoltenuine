@@ -66,6 +66,10 @@ public class Consts {
             return ModList.get().isLoaded(id);
         }
 
+        public void ifLoaded(Runnable runnable) {
+            if (loaded()) runnable.run();
+        }
+
         public ResourceLocation rl(String path) {
             return ResourceLocation.fromNamespaceAndPath(id, path);
         }

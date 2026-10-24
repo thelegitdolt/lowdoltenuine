@@ -1,6 +1,8 @@
 package com.dolthhaven.lowdoltenuine.other;
 
 import com.dolthhaven.lowdoltenuine.integration.CavernsChasmsIntegration;
+import com.dolthhaven.lowdoltenuine.integration.doublewhammy.CavernsJNEInt;
+import com.dolthhaven.lowdoltenuine.integration.doublewhammy.CavernsOreganizedInt;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.mojang.datafixers.util.Pair;
@@ -24,14 +26,21 @@ public class LDTNCommonSetup {
     public static void registerData() {
         registerPipes();
         registerBlockPlacing();
+        dispensers();
         if (Consts.CAVERNS_AND_CHASMS.loaded()) {
             CavernsChasmsIntegration.registerGoldenBuckets();
+            Consts.OREGANIZED.ifLoaded(CavernsOreganizedInt::registerCauldrons);
+            Consts.JNE.ifLoaded(CavernsJNEInt::registerCauldrons);
         }
     }
 
     public static void registerBlockPlacing() {
         putIfNotNull(ITEM_PLACE_MAP, Items.BONE, LDTNConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
                 (BlockItem) RegUtil.item(Consts.BONE_PIKE));
+    }
+
+    public static void dispensers() {
+        Consts.CAVERNS_AND_CHASMS.ifLoaded(CavernsChasmsIntegration::registerDispensers);
     }
 
     private static void registerPipes() {

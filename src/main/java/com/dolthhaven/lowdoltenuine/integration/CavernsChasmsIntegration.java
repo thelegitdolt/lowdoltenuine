@@ -2,16 +2,29 @@ package com.dolthhaven.lowdoltenuine.integration;
 
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
+import com.teamabnormals.caverns_and_chasms.common.dispenser.FilledGoldenBucketDispenseBehavior;
 import com.teamabnormals.caverns_and_chasms.common.item.GoldenBucketItem;
+import com.teamabnormals.caverns_and_chasms.core.other.CCCauldronInteractions;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.registries.DeferredItem;
 
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class CavernsChasmsIntegration {
@@ -31,10 +44,38 @@ public class CavernsChasmsIntegration {
         putIfNotNull(Consts.MOLTEN_LEAD, LDTNItems.GOLDEN_MOLTEN_LEAD_BUCKET);
     }
 
+    public static void registerDispensers() {
+        DispenserBlock.registerBehavior(LDTNItems.GOLDEN_ECTOPLASM_BUCKET, new FilledGoldenBucketDispenseBehavior());
+        DispenserBlock.registerBehavior(LDTNItems.GOLDEN_MOLTEN_LEAD_BUCKET, new FilledGoldenBucketDispenseBehavior());
+    }
+
     private static void putIfNotNull(ResourceLocation location, DeferredItem<Item> bucket) {
         if (ModList.get().isLoaded(location.getNamespace())) {
             Fluid fluid = BuiltInRegistries.FLUID.get(location);
             GoldenBucketItem.GOLDEN_BUCKET_BEHAVIORS.put(state -> state.getFluidState().is(fluid), bucket);
         }
+    }
+
+    public static CauldronInteraction fillCauldron(Block block, Predicate<BlockState> canAct, SoundEvent emptySound, SoundEvent fillSound) {
+        return (BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, ItemStack stack) -> {
+            return CCCauldronInteractions.emptyBucket(level, pos, player, hand, stack,
+                    block.defaultBlockState(),
+                    canAct,
+                    emptySound, fillSound);
+        };
+    }
+
+    public static CauldronInteraction emptyCauldron(Item resultItem, Predicate<BlockState> canAct, SoundEvent fillSound) {
+        return (BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, ItemStack stack) -> {
+            return CCCauldronInteractions.fillBucket(state, level, pos, player, hand, stack,
+                    resultItem.getDefaultInstance(),
+                    canAct, fillSound);
+        };
+    }
+
+    public static CauldronInteraction emptyCauldronWithHalfFilledBucket(Predicate<BlockState> canAct, SoundEvent fillSound) {
+        return (BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, ItemStack stack) -> {
+            return CCCauldronInteractions.fillFilledBucket(state, level, pos, player, hand, stack, canAct, fillSound);
+        };
     }
 }
