@@ -88,7 +88,7 @@ public class LDTNBlocks {
     }
 
     private static DeferredBlock<Block> getRakedSand(String name, ResourceLocation sandLoc, int color) {
-        boolean modsOK = (ModList.get().isLoaded(sandLoc.getPath()) && Consts.MOWZIES_MOBS.loaded()) || DatagenModLoader.isRunningDataGen();
+        boolean modsOK = (ModList.get().isLoaded(sandLoc.getNamespace()) && Consts.MOWZIES_MOBS.loaded()) || DatagenModLoader.isRunningDataGen();
         Supplier<Block> block = modsOK ? MowziesIntegration.rakedSand(color, sandLoc) : () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND));
         return BLOCKS.createBlock(name, block);
     }

@@ -73,6 +73,13 @@ description='''
 [[dependencies.${mod_id}]]
     modId="atmospheric"
     type="optional"
+    versionRange="[7.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="mowziesmobs"
+    type="optional"
     ordering="AFTER"
     side="BOTH"
 
