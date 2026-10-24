@@ -2,6 +2,7 @@ package com.dolthhaven.lowdoltenuine.core.registry;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.common.block.BlockWithOneString;
+import com.dolthhaven.lowdoltenuine.integration.MowziesIntegration;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.teamabnormals.blueprint.common.block.BlueprintDirectionalBlock;
@@ -14,8 +15,11 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.data.loading.DatagenModLoader;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import org.violetmoon.quark.addons.oddities.block.pipe.EncasedPipeBlock;
+
+import java.util.function.Supplier;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.LDTNBlockProps.*;
 import static net.minecraft.world.level.material.MapColor.GLOW_LICHEN;
@@ -39,7 +43,10 @@ public class LDTNBlocks {
     public static final DeferredBlock<Block> POTTED_TALL_BEACHGRASS = customPot("tall_beachgrass", Consts.TALL_BEACHGRASS);
     public static final DeferredBlock<Block> POTTED_MYCELIUM_SPROUTS = customPot("mycelium_sprouts", Consts.MYCELIUM_SPROUTS);
 
-    
+    public static final DeferredBlock<Block> ARID_RAKED_SAND = getRakedSand("arid_raked_sand", Consts.ARID_SAND, 0xDBD3A0);
+    public static final DeferredBlock<Block> RED_ARID_RAKED_SAND = getRakedSand("red_arid_raked_sand", Consts.RED_ARID_SAND, 0xF7D3A0);
+    public static final DeferredBlock<Block> ASHEN_RAKED_SAND = getRakedSand("ashen_raked_sand", Consts.BB_ASHEN_SAND, 0x565E5D);
+
     public static final DeferredBlock<Block> WHITE_ENCASED_PIPE = BLOCKS.createBlock("white_encased_pipe", () -> new EncasedPipeBlock(null));
     public static final DeferredBlock<Block> BROWN_ENCASED_PIPE = BLOCKS.createBlock("brown_encased_pipe", () -> new EncasedPipeBlock(null));
     public static final DeferredBlock<Block> GRAY_ENCASED_PIPE = BLOCKS.createBlock("gray_encased_pipe", () -> new EncasedPipeBlock(null));
@@ -78,6 +85,12 @@ public class LDTNBlocks {
             return BLOCKS.createBlockNoItem("potted_" + name, () -> new FlowerPotBlock(RegUtil.block(resource), PropertyUtil.flowerPot()));
         }
         return BLOCKS.createBlockNoItem("potted_" + name, () -> new BlockWithOneString(resource.toString(), PropertyUtil.flowerPot()));
+    }
+
+    private static DeferredBlock<Block> getRakedSand(String name, ResourceLocation sandLoc, int color) {
+        boolean modsOK = (ModList.get().isLoaded(sandLoc.getPath()) && Consts.MOWZIES_MOBS.loaded()) || DatagenModLoader.isRunningDataGen();
+        Supplier<Block> block = modsOK ? MowziesIntegration.rakedSand(color, sandLoc) : () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SAND));
+        return BLOCKS.createBlock(name, block);
     }
 
     public static class LDTNBlockProps {

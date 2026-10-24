@@ -18,7 +18,8 @@ public class DummyItemsRegistry {
 
     @SubscribeEvent
     public static void registerDummies(RegisterEvent event) {
-        var list = List.of(Consts.ZINC_INGOT, Consts.SPAWN_DATES, Consts.ARID_SPROUTS, Consts.BEACHGRASS, Consts.TALL_BEACHGRASS, Consts.MYCELIUM_SPROUTS);
+        var list = List.of(Consts.ZINC_INGOT, Consts.SPAWN_DATES, Consts.ARID_SPROUTS, Consts.BEACHGRASS, Consts.TALL_BEACHGRASS, Consts.MYCELIUM_SPROUTS,
+                Consts.ARID_SAND, Consts.RED_ARID_SAND, Consts.BB_ASHEN_SAND);
         if (DatagenModLoader.isRunningDataGen()) {
             list.forEach(location -> {
                 if (!ModList.get().isLoaded(location.getNamespace()))

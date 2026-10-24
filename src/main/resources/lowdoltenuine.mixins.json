@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Debug",
+    "SandRakeMixin",
     "cavernschasms.EquipableMixin",
     "cavernschasms.PackingContainerMixin",
     "cavernschasms.TetherPotionMixin",

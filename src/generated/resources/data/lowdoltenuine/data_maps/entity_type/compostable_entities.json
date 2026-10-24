@@ -1,12 +1,21 @@
 {
-  "neoforge:conditions": [
-    {
-      "type": "neoforge:mod_loaded",
-      "modid": "neapolitan"
-    }
-  ],
   "values": {
+    "dungeonsdelight:monster_yam": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "dungeonsdelight"
+        }
+      ],
+      "chance": 1.0
+    },
     "neapolitan:banana_peel": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "neapolitan"
+        }
+      ],
       "chance": 0.5
     }
   }

@@ -1,0 +1,15 @@
+{
+  "values": [
+    "lowdoltenuine:arid_raked_sand",
+    "lowdoltenuine:red_arid_raked_sand",
+    "lowdoltenuine:ashen_raked_sand",
+    {
+      "id": "mowziesmobs:raked_sand",
+      "required": false
+    },
+    {
+      "id": "mowziesmobs:red_raked_sand",
+      "required": false
+    }
+  ]
+}

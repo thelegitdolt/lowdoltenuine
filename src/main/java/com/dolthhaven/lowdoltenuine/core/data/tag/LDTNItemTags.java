@@ -17,5 +17,6 @@ public class LDTNItemTags extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         this.tag(LDTNTags.Items.HIDES_CAPES).add(BackpackModule.backpack);
         this.copy(LDTNTags.Blocks.ENCASED_PIPE_BLOCKS, LDTNTags.Items.ENCASED_PIPE_BLOCKS);
+        this.copy(LDTNTags.Blocks.RAKED_SANDS, LDTNTags.Items.RAKED_SANDS);
     }
 }

@@ -1,0 +1,39 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "mowziesmobs"
+    }
+  ],
+  "values": {
+    "atmospheric:arid_sand": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "atmospheric"
+        }
+      ],
+      "neoforge:value": "lowdoltenuine:arid_raked_sand"
+    },
+    "atmospheric:red_arid_sand": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "atmospheric"
+        }
+      ],
+      "neoforge:value": "lowdoltenuine:red_arid_raked_sand"
+    },
+    "blasted_barrens:ashen_sand": {
+      "neoforge:conditions": [
+        {
+          "type": "neoforge:mod_loaded",
+          "modid": "blasted_barrens"
+        }
+      ],
+      "neoforge:value": "lowdoltenuine:ashen_raked_sand"
+    },
+    "minecraft:red_sand": "mowziesmobs:red_raked_sand",
+    "minecraft:sand": "mowziesmobs:raked_sand"
+  }
+}

@@ -27,6 +27,10 @@ bin/
 
 .DS_Store
 
+**/arid_sand.png
+**/red_arid_sand.png
+**/ashen_sand.png
+
 run/
 !**/src/**/run/
 **/src/generated/**/.cache/

@@ -94,6 +94,8 @@ dependencies {
     implementation "maven.modrinth:dye-depot:${project.dyedepot}"
     implementation "maven.modrinth:emi:${project.emi}"
     implementation "maven.modrinth:farmers-delight:${project.fd}"
+    implementation "maven.modrinth:mowzies-mobs:${project.mowzie}"
+    implementation "maven.modrinth:farmers-delight:${project.fd}"
 //    implementation "maven.modrinth:opposing-force:${project.oppforce}"
 //    implementation "maven.modrinth:sinew:${project.sinew}"
 //    implementation "maven.modrinth:jadens-nether-expansion:${project.jne}"

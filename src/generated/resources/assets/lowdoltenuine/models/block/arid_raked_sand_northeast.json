@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_top",
+  "textures": {
+    "side": "atmospheric:block/arid_sand",
+    "top": "lowdoltenuine:block/arid_raked_sand_northeast"
+  }
+}

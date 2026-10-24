@@ -3,6 +3,7 @@ package com.dolthhaven.lowdoltenuine.core.data;
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.common.block.BlockWithOneString;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlockFamilies;
+import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.google.common.collect.ImmutableList;
 import com.rosemods.heart_crystals.core.registry.HCBlocks;
@@ -37,6 +38,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -92,6 +94,10 @@ public class LDTNLootTables extends LootTableProvider{
             this.dropReallyWeirdPottedContents(POTTED_ARID_SPROUTS);
             this.dropReallyWeirdPottedContents(POTTED_MYCELIUM_SPROUTS);
 
+            this.dropOtherOptional(ARID_RAKED_SAND, Consts.ARID_SAND);
+            this.dropOtherOptional(RED_ARID_RAKED_SAND, Consts.RED_ARID_SAND);
+            this.dropOtherOptional(ASHEN_RAKED_SAND, Consts.BB_ASHEN_SAND);
+
             this.pipes();
         }
 
@@ -104,6 +110,10 @@ public class LDTNLootTables extends LootTableProvider{
             } else if (block.get() instanceof FlowerPotBlock) {
                 dropPottedContents(block.get());
             } else throw new IllegalArgumentException("this is too weird even for this method");
+        }
+
+        private void dropOtherOptional(DeferredBlock<? extends Block> block, ResourceLocation location) {
+            this.dropOther(block.get(), Objects.requireNonNull(RegUtil.item(location)));
         }
 
         @Override

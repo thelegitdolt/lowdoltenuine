@@ -8,6 +8,7 @@ import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public class Consts {
     public static final ModId ATMOSPHERIC = new ModId("atmospheric");
+    public static final ModId BLASTED_BARRENS = new ModId("blasted_barrens");
     public static final ModId CAVERNS_AND_CHASMS = new ModId("caverns_and_chasms");
     public static final ModId CREATE = new ModId("create");
     public static final ModId DUNGEONS_DELIGHT = new ModId("dungeonsdelight");
@@ -16,6 +17,7 @@ public class Consts {
     public static final ModId HEART_CRYSTALS = new ModId("heart_crystals");
     public static final ModId JNE = new ModId("netherexp");
     public static final ModId MINECRAFT = new ModId("minecraft");
+    public static final ModId MOWZIES_MOBS = new ModId("mowziesmobs");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
     public static final ModId SPAWN = new ModId("spawn");
@@ -26,6 +28,7 @@ public class Consts {
 
     public static final ResourceLocation HEART_CRYSTAL_ITEM = HEART_CRYSTALS.rl("heart_crystal");
     public static final ResourceLocation BANANA_PEEL = NEAPOLITAN.rl("banana_peel");
+    public static final ResourceLocation BB_ASHEN_SAND = BLASTED_BARRENS.rl("ashen_sand");
 
     public static final ResourceLocation MONSTER_YAM = DUNGEONS_DELIGHT.rl("monster_yam");
     public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
@@ -33,11 +36,18 @@ public class Consts {
     public static final ResourceLocation BONE_PIKE = JNE.rl("bone_pike");
     public static final ResourceLocation SPAWN_DATES = SPAWN.rl("dates");
 
+    public static final ResourceLocation SAND_RAKE = MOWZIES_MOBS.rl("sand_rake");
+
     public static final ResourceLocation ZINC_INGOT = CREATE.rl("zinc_ingot");
     public static final ResourceLocation CREATE_ZINC_BLOCK = CREATE.rl("zinc_block");
     public static final ResourceLocation CREATE_BUILDING_TAB = CREATE.rl("palettes");
 
+    public static final ResourceLocation RAKED_SAND = MOWZIES_MOBS.rl("raked_sand");
+    public static final ResourceLocation RED_RAKED_SAND = MOWZIES_MOBS.rl("red_raked_sand");
+
     public static final ResourceLocation SPAWN_ITEM_TAB = SPAWN.rl("item_group");
+    public static final ResourceLocation ARID_SAND = ATMOSPHERIC.rl("arid_sand");
+    public static final ResourceLocation RED_ARID_SAND = ATMOSPHERIC.rl("red_arid_sand");
     public static final ResourceLocation ARID_SPROUTS = ATMOSPHERIC.rl("arid_sprouts");
     public static final ResourceLocation BEACHGRASS = UPGRADE_AQUATIC.rl("beachgrass");
     public static final ResourceLocation TALL_BEACHGRASS = UPGRADE_AQUATIC.rl("tall_beachgrass");

@@ -2,7 +2,9 @@ package com.dolthhaven.lowdoltenuine.core.data.tag;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.teamabnormals.blueprint.core.util.TagUtil;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -18,6 +20,7 @@ public class LDTNTags {
         public static final TagKey<Item> ENCASED_PIPE_BLOCKS = itemTag("encased_pipes_blocks");
 
         public static final TagKey<Item> HIDES_CAPES = itemTag("hides_capes");
+        public static final TagKey<Item> RAKED_SANDS = itemTag("raked_sands");
 
         private static TagKey<Item> itemTag(String path) {
             return externalItemTag(Lowdoltenuine.MOD_ID, path);
@@ -33,7 +36,7 @@ public class LDTNTags {
         public static final TagKey<Block> ENCASED_PIPE_BLOCKS = blockTag("encased_pipes_blocks");
 
         public static final TagKey<Block> QUARK_PIPES = externalBlockTag("quark", "pipes");
-
+        public static final TagKey<Block> RAKED_SANDS = blockTag("raked_sands");
 
         private static TagKey<Block> blockTag(String path) {
             return externalBlockTag(Lowdoltenuine.MOD_ID, path);
@@ -51,10 +54,14 @@ public class LDTNTags {
                 .builder(Lowdoltenuine.rl("compostable_entities"), Registries.ENTITY_TYPE, Compostable.CODEC)
                 .synced(Compostable.CHANCE_CODEC, false)
                 .build();
+        public static final DataMapType<Block, Holder<Block>> RAKE_MAP = DataMapType
+                .builder(Lowdoltenuine.rl("mowzies_sand_rakeables"), Registries.BLOCK, RegistryFixedCodec.create(Registries.BLOCK))
+                .build();
 
         @SubscribeEvent
         public static void registerDataMaps(RegisterDataMapTypesEvent event) {
             event.register(COMPOSTABLE_ENTITIES);
+            event.register(RAKE_MAP);
         }
     }
 }
