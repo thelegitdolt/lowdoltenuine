@@ -32,10 +32,14 @@ public class LDTNItems {
                     .addItemsAfter(of(Blocks.EMERALD_BLOCK), HEART_CRYSTAL_LAMP)
                 .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                     .addItemsAfter(of(Blocks.SEA_LANTERN), HEART_CRYSTAL_LAMP)
+
                 .predicate(LDTNItems::createPredicate)
                     .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
                 .predicate(LDTNItems::spawnPredicate)
-                    .addItemsAfter(ofID(Consts.SPAWN_DATES, Consts.SPAWN.id()), DATE_CRATE);
+                    .addItemsAfter(ofID(Consts.SPAWN_DATES, Consts.SPAWN.id()), DATE_CRATE)
+                .predicate(LDTNItems::mowziesPredicate)
+                        .addItemsAfter(ofID(Consts.RED_RAKED_SAND, Consts.ATMOSPHERIC.id()),
+                                ARID_RAKED_SAND, RED_ARID_RAKED_SAND);
 
         creativeTabs.tab(CreativeModeTabs.REDSTONE_BLOCKS)
                 .addItems(WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
@@ -51,6 +55,10 @@ public class LDTNItems {
 
     public static boolean createPredicate(BuildCreativeModeTabContentsEvent event) {
         return event.getTabKey().location().equals(Consts.CREATE_BUILDING_TAB);
+    }
+
+    public static boolean mowziesPredicate(BuildCreativeModeTabContentsEvent event) {
+        return event.getTabKey().location().equals(Consts.MOWZIES_MOBS_TAB);
     }
 
     public static Predicate<ItemStack> ofMod(ItemLike itemLike, Consts.ModId id) {

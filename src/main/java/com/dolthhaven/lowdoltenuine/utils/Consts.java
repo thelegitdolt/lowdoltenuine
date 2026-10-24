@@ -36,7 +36,8 @@ public class Consts {
     public static final ResourceLocation BONE_PIKE = JNE.rl("bone_pike");
     public static final ResourceLocation SPAWN_DATES = SPAWN.rl("dates");
 
-    public static final ResourceLocation SAND_RAKE = MOWZIES_MOBS.rl("sand_rake");
+    public static final ResourceLocation MOWZIES_MOBS_TAB = MOWZIES_MOBS.rl("mowziesmobs_tab");
+
 
     public static final ResourceLocation ZINC_INGOT = CREATE.rl("zinc_ingot");
     public static final ResourceLocation CREATE_ZINC_BLOCK = CREATE.rl("zinc_block");
