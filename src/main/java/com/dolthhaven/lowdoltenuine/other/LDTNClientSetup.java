@@ -1,5 +1,8 @@
 package com.dolthhaven.lowdoltenuine.other;
 
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
+import com.dolthhaven.lowdoltenuine.integration.CavernsChasmsIntegration;
+import com.dolthhaven.lowdoltenuine.utils.Consts;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 
@@ -8,6 +11,14 @@ import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 public class LDTNClientSetup {
     public static void clientCompat() {
         registerPipeRender();
+        registerItemProperties();
+    }
+
+    private static void registerItemProperties() {
+        if (Consts.CAVERNS_AND_CHASMS.loaded()) {
+            CavernsChasmsIntegration.goldBucketItemProp(LDTNItems.GOLDEN_ECTOPLASM_BUCKET.get());
+            CavernsChasmsIntegration.goldBucketItemProp(LDTNItems.GOLDEN_MOLTEN_LEAD_BUCKET.get());
+        }
     }
 
     private static void registerPipeRender() {

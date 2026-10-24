@@ -18,6 +18,7 @@ public class Consts {
     public static final ModId JNE = new ModId("netherexp");
     public static final ModId MINECRAFT = new ModId("minecraft");
     public static final ModId MOWZIES_MOBS = new ModId("mowziesmobs");
+    public static final ModId OREGANIZED = new ModId("oreganized");
     public static final ModId QUARK = new ModId("quark");
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
     public static final ModId SPAWN = new ModId("spawn");
@@ -33,7 +34,13 @@ public class Consts {
     public static final ResourceLocation MONSTER_YAM = DUNGEONS_DELIGHT.rl("monster_yam");
     public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
 
+    public static final ResourceLocation ECTOPLASM = JNE.rl("ectoplasm");
+    public static final ResourceLocation ECTOPLASM_BUCKET = JNE.rl("ectoplasm_bucket");
     public static final ResourceLocation BONE_PIKE = JNE.rl("bone_pike");
+    public static final ResourceLocation MOLTEN_LEAD = OREGANIZED.rl("molten_lead");
+    public static final ResourceLocation MOLTEN_LEAD_BUCKET = OREGANIZED.rl("molten_lead_bucket");
+    public static final ResourceLocation GOLDEN_LAVA_BUCKET = CAVERNS_AND_CHASMS.rl("golden_lava_bucket");
+
     public static final ResourceLocation SPAWN_DATES = SPAWN.rl("dates");
 
     public static final ResourceLocation MOWZIES_MOBS_TAB = MOWZIES_MOBS.rl("mowziesmobs_tab");

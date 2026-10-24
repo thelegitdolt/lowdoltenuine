@@ -1,5 +1,6 @@
 package com.dolthhaven.lowdoltenuine.other;
 
+import com.dolthhaven.lowdoltenuine.integration.CavernsChasmsIntegration;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.mojang.datafixers.util.Pair;
@@ -23,6 +24,9 @@ public class LDTNCommonSetup {
     public static void registerData() {
         registerPipes();
         registerBlockPlacing();
+        if (Consts.CAVERNS_AND_CHASMS.loaded()) {
+            CavernsChasmsIntegration.registerGoldenBuckets();
+        }
     }
 
     public static void registerBlockPlacing() {

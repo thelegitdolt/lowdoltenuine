@@ -22,6 +22,9 @@ public class LDTNTags {
         public static final TagKey<Item> HIDES_CAPES = itemTag("hides_capes");
         public static final TagKey<Item> RAKED_SANDS = itemTag("raked_sands");
 
+        public static final TagKey<Item> BUCKETS_MOLTEN_LEAD = externalItemTag("c", "buckets/molten_lead");
+        public static final TagKey<Item> BUCKETS_ECTOPLASM = externalItemTag("c", "buckets/ectoplasm");
+
         private static TagKey<Item> itemTag(String path) {
             return externalItemTag(Lowdoltenuine.MOD_ID, path);
         }

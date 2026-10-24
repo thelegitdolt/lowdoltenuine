@@ -96,11 +96,13 @@ dependencies {
     implementation "maven.modrinth:farmers-delight:${project.fd}"
     implementation "maven.modrinth:mowzies-mobs:${project.mowzie}"
     implementation "maven.modrinth:farmers-delight:${project.fd}"
+    implementation "maven.modrinth:oreganized:${project.oreganized}"
+
 //    implementation "maven.modrinth:opposing-force:${project.oppforce}"
 //    implementation "maven.modrinth:sinew:${project.sinew}"
-//    implementation "maven.modrinth:jadens-nether-expansion:${project.jne}"
-//    implementation "maven.modrinth:elysium-api:${project.elysium}"
-//    implementation "maven.modrinth:lodestonelib:${project.lodestone}"
+    implementation "maven.modrinth:jadens-nether-expansion:${project.jne}"
+    implementation "maven.modrinth:elysium-api:${project.elysium}"
+    implementation "maven.modrinth:lodestonelib:${project.lodestone}"
 
     implementation "maven.modrinth:heart_crystals:${project.heartcrystals}"
     implementation "maven.modrinth:quark:${project.quark}"

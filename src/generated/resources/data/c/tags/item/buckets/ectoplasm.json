@@ -1,0 +1,9 @@
+{
+  "values": [
+    "lowdoltenuine:golden_ectoplasm_bucket",
+    {
+      "id": "netherexp:ectoplasm_bucket",
+      "required": false
+    }
+  ]
+}
