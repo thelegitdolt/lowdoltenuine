@@ -42,13 +42,14 @@ public class LDTNItems {
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                     .addItemsAfter(ofMod(Items.AMETHYST_CLUSTER, Consts.HEART_CRYSTALS), HEART_GEODE)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                    .addItemsAfter(ofID(Consts.STURDY_STONE), STURDY_DEEPSLATE)
-                    .addItemsAfter(of(Blocks.EMERALD_BLOCK), HEART_CRYSTAL_LAMP)
+                    .addItemsAfter(ofID(Consts.STURDY_STONE, Consts.QUARK.id()), STURDY_DEEPSLATE)
+                .tab(CreativeModeTabs.NATURAL_BLOCKS)
+                    .addItemsAfter(ofMod(Items.HAY_BLOCK, Consts.QUARK), BAMBOO_BUNDLE)
                 .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                     .addItemsAfter(of(Blocks.SEA_LANTERN), HEART_CRYSTAL_LAMP)
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
-                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.OREGANIZED.id()), GOLDEN_MOLTEN_LEAD_BUCKET)
-                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.JNE.id()), GOLDEN_ECTOPLASM_BUCKET)
+                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.CAVERNS_AND_CHASMS.id(), Consts.OREGANIZED.id()), GOLDEN_MOLTEN_LEAD_BUCKET)
+                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.CAVERNS_AND_CHASMS.id(), Consts.JNE.id()), GOLDEN_ECTOPLASM_BUCKET)
 
                 .predicate(LDTNItems::createPredicate)
                     .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
@@ -58,15 +59,17 @@ public class LDTNItems {
                         .addItemsAfter(ofID(Consts.RED_RAKED_SAND, Consts.ATMOSPHERIC.id()),
                                 ARID_RAKED_SAND, RED_ARID_RAKED_SAND);
 
-        creativeTabs.tab(CreativeModeTabs.REDSTONE_BLOCKS)
-                .addItems(WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
-                        YELLOW_ENCASED_PIPE, LIME_ENCASED_PIPE, GREEN_ENCASED_PIPE, BLUE_ENCASED_PIPE, LIGHT_BLUE_ENCASED_PIPE, CYAN_ENCASED_PIPE, PURPLE_ENCASED_PIPE,
-                        MAGENTA_ENCASED_PIPE, PINK_ENCASED_PIPE, BLACK_ENCASED_PIPE);
+        if (Consts.QUARK.loaded()) {
+            creativeTabs.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+                    .addItems(WHITE_ENCASED_PIPE, BROWN_ENCASED_PIPE, GRAY_ENCASED_PIPE, LIGHT_GRAY_ENCASED_PIPE, RED_ENCASED_PIPE, ORANGE_ENCASED_PIPE,
+                            YELLOW_ENCASED_PIPE, LIME_ENCASED_PIPE, GREEN_ENCASED_PIPE, BLUE_ENCASED_PIPE, LIGHT_BLUE_ENCASED_PIPE, CYAN_ENCASED_PIPE, PURPLE_ENCASED_PIPE,
+                            MAGENTA_ENCASED_PIPE, PINK_ENCASED_PIPE, BLACK_ENCASED_PIPE);
 
-        if (Consts.DYE_DEPOT.loaded()) {
-            creativeTabs.addItems(ROSE_ENCASED_PIPE, MAROON_ENCASED_PIPE, GINGER_ENCASED_PIPE, TAN_ENCASED_PIPE,
-                    BEIGE_ENCASED_PIPE, CORAL_ENCASED_PIPE, OLIVE_ENCASED_PIPE, FOREST_ENCASED_PIPE, VERDANT_ENCASED_PIPE, AMBER_ENCASED_PIPE,
-                    TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE);
+            if (Consts.DYE_DEPOT.loaded()) {
+                creativeTabs.addItems(ROSE_ENCASED_PIPE, MAROON_ENCASED_PIPE, GINGER_ENCASED_PIPE, TAN_ENCASED_PIPE,
+                        BEIGE_ENCASED_PIPE, CORAL_ENCASED_PIPE, OLIVE_ENCASED_PIPE, FOREST_ENCASED_PIPE, VERDANT_ENCASED_PIPE, AMBER_ENCASED_PIPE,
+                        TEAL_ENCASED_PIPE, MINT_ENCASED_PIPE, AQUA_ENCASED_PIPE, SLATE_ENCASED_PIPE, NAVY_ENCASED_PIPE, INDIGO_ENCASED_PIPE);
+            }
         }
     }
 

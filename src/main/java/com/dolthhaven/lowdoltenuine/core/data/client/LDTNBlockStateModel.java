@@ -29,6 +29,8 @@ public class LDTNBlockStateModel extends BlueprintBlockStateProvider {
     protected void registerStatesAndModels() {
         block(STURDY_DEEPSLATE);
         block(HEART_CRYSTAL_LAMP);
+
+        logBlock(BAMBOO_BUNDLE);
         directionalBlockSharedSide(DATE_CRATE, DATE_CRATE);
         forDefaultBlockFamily(LDTNBlockFamilies.ZINC_BRICKS_FAMILY);
 

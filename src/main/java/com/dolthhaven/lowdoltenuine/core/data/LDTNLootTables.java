@@ -80,6 +80,7 @@ public class LDTNLootTables extends LootTableProvider{
         @Override
         protected void generate() {
             this.dropSelf(DATE_CRATE.get());
+            this.dropSelf(BAMBOO_BUNDLE.get());
             this.dropSelf(HEART_CRYSTAL_LAMP.get());
             this.add(HCBlocks.HEART_CRYSTAL.get(), lootTable().withPool(
                     lootPool().add(alternatives(lootTableItem(HEART_GEODE.get())

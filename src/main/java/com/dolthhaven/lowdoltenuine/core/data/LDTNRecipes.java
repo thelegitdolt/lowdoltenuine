@@ -41,6 +41,11 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
         storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, STURDY_DEEPSLATE);
         storageRecipes(output.withConditions(Consts.SPAWN.requiresLoaded()), RecipeCategory.FOOD, RegUtil.item(Consts.SPAWN_DATES), RecipeCategory.DECORATIONS, DATE_CRATE);
 
+        storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.MISC, Items.BAMBOO, RecipeCategory.BUILDING_BLOCKS, BAMBOO_BUNDLE);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.BAMBOO_BLOCK).requires(Items.BAMBOO, 8)
+                .unlockedBy("has_bamboo", has(Items.BAMBOO)).save(output, ResourceLocation.withDefaultNamespace("bamboo_block"));
+
+
         AndCondition createCCLoaded = and(Consts.CAVERNS_AND_CHASMS.requiresLoaded(), Consts.CREATE.requiresLoaded());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ZINC_BRICKS, 4)
                 .define('z', RegUtil.item(Consts.ZINC_INGOT)).define('d', Items.DEEPSLATE)

@@ -1,5 +1,6 @@
 package com.dolthhaven.lowdoltenuine.common.block;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
 // a debug block, meant as a placeholder when certain mods aren't loaded.
