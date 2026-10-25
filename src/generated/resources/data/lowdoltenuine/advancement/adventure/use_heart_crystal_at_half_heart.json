@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "use_the_heart": {
+      "conditions": {
+        "item": {
+          "items": "heart_crystals:heart_crystal"
+        },
+        "player": [
+          {
+            "condition": "lowdoltenuine:health",
+            "health": {
+              "max": 2.0
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "heart_crystals:heart_crystal"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.title"
+    }
+  },
+  "requirements": [
+    [
+      "use_the_heart"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

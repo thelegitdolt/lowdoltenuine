@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:nether/brew_potion",
+  "criteria": {
+    "apply_quotient_topology": {
+      "conditions": {
+        "distance": {
+          "min": 1500
+        }
+      },
+      "trigger": "lowdoltenuine:rewind_teleport"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.nether.rewind_great_distances.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "caverns_and_chasms:bejeweled_pearl"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.nether.rewind_great_distances.title"
+    }
+  },
+  "requirements": [
+    [
+      "apply_quotient_topology"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

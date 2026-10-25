@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Debug",
+    "RewindCCEventsMixin",
     "SandRakeMixin",
     "cavernschasms.EquipableMixin",
     "cavernschasms.PackingContainerMixin",

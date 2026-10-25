@@ -8,8 +8,10 @@ import com.dolthhaven.lowdoltenuine.core.data.client.LDTNItemModelGen;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNBlockTags;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNDataMaps;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNItemTags;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNItems;
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNLootItemConditions;
 import com.dolthhaven.lowdoltenuine.other.LDTNClientSetup;
 import com.dolthhaven.lowdoltenuine.other.LDTNCommonSetup;
 import com.dolthhaven.lowdoltenuine.other.LDTNConfig;
@@ -55,6 +57,8 @@ public class Lowdoltenuine {
     private static void registrate(IEventBus bus) {
         LDTNBlocks.BLOCKS.register(bus);
         LDTNItems.ITEMS.register(bus);
+        LDTNLootItemConditions.LOOT_CONDITIONS.register(bus);
+        LDTNAdvancementTriggers.TRIGGERS.register(bus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

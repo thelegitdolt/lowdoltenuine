@@ -57,5 +57,11 @@
   "slabfish_variant.lowdoltenuine.glimmering_weald": "Glimmering Weald",
   "slabfish_variant.lowdoltenuine.seagrass_meadow": "Seagrass Meadow",
   "slabfish_variant.lowdoltenuine.ant_gardens": "Ant Gardens",
-  "slabfish_variant.lowdoltenuine.blasted_barrens": "Blasted Barrens"
+  "slabfish_variant.lowdoltenuine.blasted_barrens": "Blasted Barrens",
+
+  "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.description": "Use a heart crystal to save yourself from very low health",
+  "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.title": "Heart of Glass",
+
+  "advancements.lowdoltenuine.nether.rewind_great_distances.description": "Travel at least 1500 blocks with the power of a Rewind Potion",
+  "advancements.lowdoltenuine.nether.rewind_great_distances.title": "Applied Quotient Topology"
 }
