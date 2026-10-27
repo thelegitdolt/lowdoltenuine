@@ -25,7 +25,7 @@
     },
     "icon": {
       "count": 1,
-      "id": "species:kinetic_core"
+      "id": "minecraft:flower_pot"
     },
     "title": {
       "translate": "advancements.lowdoltenuine.other.kill_charged_creeper_with_quake.title"

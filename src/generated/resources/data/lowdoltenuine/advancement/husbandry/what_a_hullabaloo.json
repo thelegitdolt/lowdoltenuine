@@ -1,7 +1,7 @@
 {
   "parent": "neapolitan:husbandry/chimpanzee_attack",
   "criteria": {
-    "pvz": {
+    "hully_bloo": {
       "conditions": {
         "killer": [
           {
@@ -36,7 +36,7 @@
   },
   "requirements": [
     [
-      "pvz"
+      "hully_bloo"
     ]
   ],
   "sends_telemetry_event": true

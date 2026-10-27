@@ -1,8 +1,6 @@
 package com.dolthhaven.lowdoltenuine.core.datapacks.criteriatriggers;
 
-import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNTags;
 import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.EntityIDCondition;
-import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.IsChargedCreeperCondition;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -17,7 +15,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -25,7 +22,6 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.AllOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
-import net.neoforged.neoforge.common.conditions.AndCondition;
 
 import java.util.List;
 import java.util.Optional;
@@ -65,7 +61,7 @@ public class WatchMobDieTrigger extends SimpleCriterionTrigger<WatchMobDieTrigge
                     Optional.of(typeMatches(location)), Optional.of(typeMatches(killerType))));
         }
 
-        public static Criterion<TriggerInstance> emptyKiller(LootItemCondition additionalVictimReq, ResourceLocation killerLoc) {
+        public static Criterion<TriggerInstance> emptyVictim(LootItemCondition additionalVictimReq, ResourceLocation killerLoc) {
             return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
                     Optional.of(typeMatches(killerLoc)), Optional.of(ContextAwarePredicate.create(additionalVictimReq)
             )));
