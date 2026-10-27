@@ -9,6 +9,7 @@ import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.HealthLootCond
 import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.IsChargedCreeperCondition;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.dolthhaven.lowdoltenuine.utils.RegUtil;
+import com.teamabnormals.caverns_and_chasms.core.registry.CCEntityTypes;
 import com.teamabnormals.caverns_and_chasms.core.registry.CCItems;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.*;
@@ -19,11 +20,16 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import javax.naming.Context;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -57,6 +63,15 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         goalAdvancement("kill_charged_creeper_with_quake", "other", Consts.SPECIES.rl("species/v3/kill_ten_mobs_with_quake"), Consts.KINETIC_CORE::item)
                 .addCriterion("quake_kill_chainsaw_kill", WatchMobDieTrigger.TriggerInstance.emptyVictim(new IsChargedCreeperCondition(true), Consts.QUAKE.loc()))
                 .save(consumer, other("/kill_charged_creeper_with_quake"));
+
+        goalAdvancement("slay_bewereager_with_silver", "other", Consts.SPECIES.rl("species/v3/v3"), Consts.CRANKBOW::item)
+                .addCriterion("large_arrow_kill", CriteriaTriggers.PLAYER_KILLED_ENTITY.createCriterion(new KilledTrigger.TriggerInstance(
+                            pred(reqHoldingItem(Consts.CRANKBOW.item())),
+                            pred(new EntityIDCondition(Consts.BEWEREAGER.loc())),
+                            Optional.of(DamageSourcePredicate.Builder.damageType().direct(EntityPredicate.Builder.entity().of(CCEntityTypes.LARGE_ARROW.get())).build())
+                        )))
+                .save(consumer, other("/slay_bewereager_with_silver"));
+
 
         goalAdvancement("evaporate_nucleeper", "other", Consts.ALEXS_CAVES.rl("alexscaves/tame_tremorzilla"), Consts.MUSIC_DISC_FUSION::item)
                 .addCriterion("nucleeper_gets_evapped", WatchMobDieTrigger.TriggerInstance.specifyVictim(Consts.NUCLEEPER.loc(),
@@ -101,7 +116,21 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
                 null, frame, showToast, announceToChat, hidden).rewards(rewards);
     }
 
-    private static EntityPredicate.Builder reqEffectAndAmplifier(Holder<MobEffect> effect, MinMaxBounds.Ints bound) {
-        return EntityPredicate.Builder.entity().effects(new MobEffectsPredicate.Builder().and(effect, new MobEffectsPredicate.MobEffectInstancePredicate(bound, MinMaxBounds.Ints.ANY, Optional.empty(), Optional.empty())));
+    private static Optional<ContextAwarePredicate> pred(LootItemCondition... conditions) {
+        return Optional.of(ContextAwarePredicate.create(conditions));
+    }
+
+    private static LootItemCondition reqHoldingItem(Item item) {
+        return new AnyOfCondition.Builder(
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
+                        EntityPredicate.Builder.entity().equipment(
+                                new EntityEquipmentPredicate.Builder().mainhand(ItemPredicate.Builder.item().of(item)))
+                                .build()),
+                LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
+                        EntityPredicate.Builder.entity().equipment(
+                                        new EntityEquipmentPredicate.Builder().offhand(ItemPredicate.Builder.item().of(item)))
+                                .build())
+        ).build();
+
     }
 }

@@ -1,0 +1,68 @@
+{
+  "parent": "species:species/v3/v3",
+  "criteria": {
+    "large_arrow_kill": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "lowdoltenuine:matches_id",
+            "id": "species:bewereager"
+          }
+        ],
+        "killing_blow": {
+          "direct_entity": {
+            "type": "caverns_and_chasms:large_arrow"
+          }
+        },
+        "player": [
+          {
+            "condition": "minecraft:any_of",
+            "terms": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "equipment": {
+                    "mainhand": {
+                      "items": "species:crankbow"
+                    }
+                  }
+                }
+              },
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "equipment": {
+                    "offhand": {
+                      "items": "species:crankbow"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.other.slay_bewereager_with_silver.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "species:crankbow"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.other.slay_bewereager_with_silver.title"
+    }
+  },
+  "requirements": [
+    [
+      "large_arrow_kill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

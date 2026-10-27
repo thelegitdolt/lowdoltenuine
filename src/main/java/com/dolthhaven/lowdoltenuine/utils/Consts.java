@@ -48,8 +48,12 @@ public class Consts {
 
     public static final ModResource SUSPICIOUS_STICK = SPAWN.registrableResource("suspicious_stick");
     public static final ModResource STICKBUG = SPAWN.resource("stickbug");
+
+    // species
     public static final ModResource KINETIC_CORE = SPECIES.registrableResource("kinetic_core");
     public static final ModResource QUAKE = SPECIES.resource("quake");
+    public static final ModResource CRANKBOW = SPECIES.registrableResource("crankbow");
+    public static final ModResource BEWEREAGER = SPECIES.resource("bewereager");
 
     public static final ModResource MONSTER_YAM = DUNGEONS_DELIGHT.resource("monster_yam");
     public static final ModResource STURDY_STONE = QUARK.resource("sturdy_stone");
@@ -59,7 +63,10 @@ public class Consts {
     public static final ModResource BONE_PIKE = JNE.resource("bone_pike");
     public static final ModResource MOLTEN_LEAD = OREGANIZED.resource("molten_lead");
     public static final ModResource MOLTEN_LEAD_BUCKET = OREGANIZED.resource("molten_lead_bucket");
+
+    // caverns and chasms
     public static final ModResource GOLDEN_LAVA_BUCKET = CAVERNS_AND_CHASMS.resource("golden_lava_bucket");
+    public static final ModResource SILVER_ARROW = CAVERNS_AND_CHASMS.resource("silver_arrow");
 
     public static final ModResource SPAWN_DATES = SPAWN.registrableResource("dates");
 

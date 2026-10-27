@@ -82,26 +82,6 @@ public class WatchMobDieTrigger extends SimpleCriterionTrigger<WatchMobDieTrigge
             ))));
         }
 
-        public static Criterion<TriggerInstance> withType(ResourceLocation victimLoc, ResourceLocation killerLoc) {
-            return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
-                    Optional.of(typeMatches(victimLoc)), Optional.of(typeMatches(killerLoc))));
-        }
-
-        public static Criterion<TriggerInstance> withType(EntityType<?> victimType, EntityType<?> killerType) {
-            return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
-                    Optional.of(typeMatches(victimType)), Optional.of(typeMatches(killerType))));
-        }
-
-        public static Criterion<TriggerInstance> withType(TagKey<EntityType<?>> victimType, EntityType<?> killerType) {
-            return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
-                    Optional.of(typeMatches(victimType)), Optional.of(typeMatches(killerType))));
-        }
-
-        public static Criterion<TriggerInstance> withType(EntityType<?> victimType, TagKey<EntityType<?>> killerType) {
-            return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
-                    Optional.of(typeMatches(victimType)), Optional.of(typeMatches(killerType))));
-        }
-
         private static ContextAwarePredicate typeMatches(TagKey<EntityType<?>> entityType) {
             return ContextAwarePredicate.create(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                     EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(entityType)).build()).build());

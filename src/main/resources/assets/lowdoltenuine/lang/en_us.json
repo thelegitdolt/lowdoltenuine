@@ -69,8 +69,11 @@
   "advancements.lowdoltenuine.nether.rewind_great_distances.title": "Applied Quotient Topology",
   "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.description": "Become so bored that you have no choice but to kill a stickbug with lightning",
   "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.title": "It's dead! DEAD!!!!!",
-  "advancements.lowdoltenuine.adventure.kill_charged_creeper_with_quake.description": "Have a Quake kill a Charged Creeper",
-  "advancements.lowdoltenuine.adventure.kill_charged_creeper_with_quake.title": "The Heavens and the Earth",
-  "advancements.lowdoltenuine.adventure.kill_nucleeper_with_tremorzilla.description": "Evaporate a Nucleeper with a beam of pure radioactivity",
-  "advancements.lowdoltenuine.adventure.kill_nucleeper_with_tremorzilla.title": "Nuclear Fusion Redux"
+  "advancements.lowdoltenuine.other.kill_charged_creeper_with_quake.description": "Have a Quake kill a Charged Creeper",
+  "advancements.lowdoltenuine.other.kill_charged_creeper_with_quake.title": "The Heavens and the Earth",
+  "advancements.lowdoltenuine.other.kill_nucleeper_with_tremorzilla.description": "Evaporate a Nucleeper with a beam of pure radioactivity",
+  "advancements.lowdoltenuine.other.kill_nucleeper_with_tremorzilla.title": "Nuclear Fusion Redux",
+
+  "advancements.lowdoltenuine.other.slay_bewereager_with_silver.description": "Slay a Bewereager using a crankbow and silver arrows",
+  "advancements.lowdoltenuine.other.slay_bewereager_with_silver.title": "Big Game Hunter"
 }
