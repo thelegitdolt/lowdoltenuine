@@ -1,0 +1,56 @@
+{
+  "parent": "alexscaves:alexscaves/tame_tremorzilla",
+  "criteria": {
+    "nucleeper_gets_evapped": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "lowdoltenuine:matches_id",
+            "id": "alexscaves:tremorzilla"
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:all_of",
+            "terms": [
+              {
+                "condition": "minecraft:damage_source_properties",
+                "predicate": {
+                  "tags": [
+                    {
+                      "expected": true,
+                      "id": "lowdoltenuine:tremorzilla_beam"
+                    }
+                  ]
+                }
+              },
+              {
+                "condition": "lowdoltenuine:matches_id",
+                "id": "alexscaves:nucleeper"
+              }
+            ]
+          }
+        ]
+      },
+      "trigger": "lowdoltenuine:watch_mob_die"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.other.evaporate_nucleeper.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "alexscaves:music_disc_fusion"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.other.evaporate_nucleeper.title"
+    }
+  },
+  "requirements": [
+    [
+      "nucleeper_gets_evapped"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

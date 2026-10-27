@@ -61,6 +61,12 @@ public class WatchMobDieTrigger extends SimpleCriterionTrigger<WatchMobDieTrigge
                     Optional.of(typeMatches(location)), Optional.of(typeMatches(killerType))));
         }
 
+        public static Criterion<TriggerInstance> specifyVictim(ResourceLocation victimLoc, LootItemCondition additionalVictimReq, ResourceLocation killerLoc) {
+            return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
+                    Optional.of(typeMatches(killerLoc)), Optional.of(ContextAwarePredicate.create(AllOfCondition.allOf(List.of(additionalVictimReq, new EntityIDCondition(victimLoc))))
+            )));
+        }
+
         public static Criterion<TriggerInstance> emptyVictim(LootItemCondition additionalVictimReq, ResourceLocation killerLoc) {
             return LDTNAdvancementTriggers.WATCH_MOB_DIE.get().createCriterion(new TriggerInstance(Optional.empty(),
                     Optional.of(typeMatches(killerLoc)), Optional.of(ContextAwarePredicate.create(additionalVictimReq)

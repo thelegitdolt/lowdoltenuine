@@ -6,6 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +32,18 @@ public class LDTNTags {
 
         private static TagKey<Item> externalItemTag(String modId, String path) {
             return TagUtil.itemTag(modId, path);
+        }
+    }
+
+    public static class DamageTypes {
+        public static final TagKey<DamageType> TREMORZILLA_BEAM = damageTypeTag("tremorzilla_beam");
+
+        private static TagKey<DamageType> damageTypeTag(String path) {
+            return externalDamageTypeTag(Lowdoltenuine.MOD_ID, path);
+        }
+
+        private static TagKey<DamageType> externalDamageTypeTag(String modId, String path) {
+            return TagUtil.damageTypeTag(modId, path);
         }
     }
 

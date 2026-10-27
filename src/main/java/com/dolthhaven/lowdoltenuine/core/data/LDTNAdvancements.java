@@ -19,6 +19,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -53,9 +54,15 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         goalAdvancement("pvz", "mowzies", Consts.MOWZIES_MOBS.rl("kill_foliaath"), () -> Items.FLOWER_POT)
                 .addCriterion("pvz", WatchMobDieTrigger.TriggerInstance.withType(LDTNTags.Entity.HUMANOID_ZOMBIES, Consts.FOLIAATH.loc(), EntityPredicate.Builder.entity().located(LocationPredicate.Builder.atYLocation(MinMaxBounds.Doubles.atLeast(300))).build()))
                 .save(consumer, other("/pvz"));
-        goalAdvancement("kill_charged_creeper_with_quake", "other", Consts.SPECIES.rl("species/v3/kill_ten_mobs_with_quake"), () -> Items.FLOWER_POT)
+        goalAdvancement("kill_charged_creeper_with_quake", "other", Consts.SPECIES.rl("species/v3/kill_ten_mobs_with_quake"), Consts.KINETIC_CORE::item)
                 .addCriterion("quake_kill_chainsaw_kill", WatchMobDieTrigger.TriggerInstance.emptyVictim(new IsChargedCreeperCondition(true), Consts.QUAKE.loc()))
                 .save(consumer, other("/kill_charged_creeper_with_quake"));
+
+        goalAdvancement("evaporate_nucleeper", "other", Consts.ALEXS_CAVES.rl("alexscaves/tame_tremorzilla"), Consts.MUSIC_DISC_FUSION::item)
+                .addCriterion("nucleeper_gets_evapped", WatchMobDieTrigger.TriggerInstance.specifyVictim(Consts.NUCLEEPER.loc(),
+                                DamageSourceCondition.hasDamageSource(DamageSourcePredicate.Builder.damageType().tag(TagPredicate.is(LDTNTags.DamageTypes.TREMORZILLA_BEAM))).build(),
+                                Consts.TREMORZILLA.loc()))
+                .save(consumer, other("/evaporate_nucleeper"));
 
         goalAdvancement("kill_stickbug_with_lightning", "adventure", Consts.MINECRAFT.rl("adventure/throw_trident"), Consts.SUSPICIOUS_STICK::item)
                 .addCriterion("kill_bug", CriteriaTriggers.CHANNELED_LIGHTNING.createCriterion(new ChanneledLightningTrigger.TriggerInstance(Optional.empty(), List.of(ContextAwarePredicate.create(new EntityIDCondition(Consts.STICKBUG.loc()))))))

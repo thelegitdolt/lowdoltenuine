@@ -2,11 +2,9 @@ package com.dolthhaven.lowdoltenuine.core.data;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
-import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.loading.DatagenModLoader;
 import net.neoforged.neoforge.registries.RegisterEvent;

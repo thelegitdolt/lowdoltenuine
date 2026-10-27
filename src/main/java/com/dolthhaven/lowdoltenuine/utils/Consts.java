@@ -12,6 +12,7 @@ import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
 public class Consts {
+    public static final ModId ALEXS_CAVES = new ModId("alexscaves");
     public static final ModId ATMOSPHERIC = new ModId("atmospheric");
     public static final ModId BLASTED_BARRENS = new ModId("blasted_barrens");
     public static final ModId CAVERNS_AND_CHASMS = new ModId("caverns_and_chasms");
@@ -33,6 +34,10 @@ public class Consts {
     public static final ModId WOODWORKS = new ModId("woodworks");
 
 
+    public static final ModResource MUSIC_DISC_FUSION = ALEXS_CAVES.registrableResource("music_disc_fusion");
+    public static final ModResource NUCLEEPER = ALEXS_CAVES.resource("nucleeper");
+    public static final ModResource TREMORZILLA = ALEXS_CAVES.resource("tremorzilla");
+    public static final ModResource TREMORZILLA_BEAM = ALEXS_CAVES.resource("tremorzilla_beam");
 
     public static final ModResource HEART_CRYSTAL_ITEM = HEART_CRYSTALS.resource("heart_crystal");
     public static final ModResource BANANA_PEEL = NEAPOLITAN.resource("banana_peel");
