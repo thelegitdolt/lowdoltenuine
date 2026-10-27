@@ -24,15 +24,15 @@ public class LDTNDataMaps extends DataMapProvider {
                 .add(DATE_CRATE.getId(), new Compostable(1f), false);
 
         this.builder(LDTNTags.Datamaps.COMPOSTABLE_ENTITIES)
-                .add(Consts.BANANA_PEEL, new Compostable(0.5f), false, Consts.NEAPOLITAN.requiresLoaded())
-                .add(Consts.MONSTER_YAM, new Compostable(1.0f), false, Consts.DUNGEONS_DELIGHT.requiresLoaded());
+                .add(Consts.BANANA_PEEL.loc(), new Compostable(0.5f), false, Consts.NEAPOLITAN.requiresLoaded())
+                .add(Consts.MONSTER_YAM.loc(), new Compostable(1.0f), false, Consts.DUNGEONS_DELIGHT.requiresLoaded());
 
         this.builder(LDTNTags.Datamaps.RAKE_MAP)
                 .conditions(Consts.MOWZIES_MOBS.requiresLoaded())
-                .add(RegUtil.blockId(Blocks.SAND), RegUtil.blockHolder(Consts.RAKED_SAND), false)
-                .add(RegUtil.blockId(Blocks.RED_SAND), RegUtil.blockHolder(Consts.RED_RAKED_SAND), false)
-                .add(Consts.ARID_SAND, LDTNBlocks.ARID_RAKED_SAND, false, Consts.ATMOSPHERIC.requiresLoaded())
-                .add(Consts.RED_ARID_SAND, LDTNBlocks.RED_ARID_RAKED_SAND, false, Consts.ATMOSPHERIC.requiresLoaded())
-                .add(Consts.BB_ASHEN_SAND, LDTNBlocks.ASHEN_RAKED_SAND, false, Consts.BLASTED_BARRENS.requiresLoaded());
+                .add(RegUtil.blockId(Blocks.SAND), RegUtil.blockHolder(Consts.RAKED_SAND.loc()), false)
+                .add(RegUtil.blockId(Blocks.RED_SAND), RegUtil.blockHolder(Consts.RED_RAKED_SAND.loc()), false)
+                .add(Consts.ARID_SAND.loc(), LDTNBlocks.ARID_RAKED_SAND, false, Consts.ATMOSPHERIC.requiresLoaded())
+                .add(Consts.RED_ARID_SAND.loc(), LDTNBlocks.RED_ARID_RAKED_SAND, false, Consts.ATMOSPHERIC.requiresLoaded())
+                .add(Consts.BB_ASHEN_SAND.loc(), LDTNBlocks.ASHEN_RAKED_SAND, false, Consts.BLASTED_BARRENS.requiresLoaded());
     }
 }

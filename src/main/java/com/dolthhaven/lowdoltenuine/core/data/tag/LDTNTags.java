@@ -34,6 +34,14 @@ public class LDTNTags {
         }
     }
 
+    public static class Entity {
+        public static final TagKey<EntityType<?>> HUMANOID_ZOMBIES = entityTag("humanoid_zombies");
+
+        private static TagKey<EntityType<?>> entityTag(String path) {
+            return TagUtil.entityTypeTag(Lowdoltenuine.MOD_ID, path);
+        }
+    }
+
 
     public static class Blocks {
         public static final TagKey<Block> ENCASED_PIPE_BLOCKS = blockTag("encased_pipes_blocks");

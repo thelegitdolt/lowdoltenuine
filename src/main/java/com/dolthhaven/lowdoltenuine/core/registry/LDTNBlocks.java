@@ -40,14 +40,14 @@ public class LDTNBlocks {
     public static final DeferredBlock<Block> ZINC_BRICK_WALL = BLOCKS.createBlock("zinc_brick_wall", () -> new WallBlock(ZINC_PLATED_BRICKS));
     public static final DeferredBlock<Block> CHISELED_ZINC_BRICKS = BLOCKS.createBlock("chiseled_zinc_bricks", () -> new Block(ZINC_PLATED_BRICKS));
 
-    public static final DeferredBlock<Block> POTTED_ARID_SPROUTS = customPot("arid_sprouts", Consts.ARID_SPROUTS);
-    public static final DeferredBlock<Block> POTTED_BEACHGRASS = customPot("beachgrass", Consts.BEACHGRASS);
-    public static final DeferredBlock<Block> POTTED_TALL_BEACHGRASS = customPot("tall_beachgrass", Consts.TALL_BEACHGRASS);
-    public static final DeferredBlock<Block> POTTED_MYCELIUM_SPROUTS = customPot("mycelium_sprouts", Consts.MYCELIUM_SPROUTS);
+    public static final DeferredBlock<Block> POTTED_ARID_SPROUTS = customPot("arid_sprouts", Consts.ARID_SPROUTS.loc());
+    public static final DeferredBlock<Block> POTTED_BEACHGRASS = customPot("beachgrass", Consts.BEACHGRASS.loc());
+    public static final DeferredBlock<Block> POTTED_TALL_BEACHGRASS = customPot("tall_beachgrass", Consts.TALL_BEACHGRASS.loc());
+    public static final DeferredBlock<Block> POTTED_MYCELIUM_SPROUTS = customPot("mycelium_sprouts", Consts.MYCELIUM_SPROUTS.loc());
 
-    public static final DeferredBlock<Block> ARID_RAKED_SAND = getRakedSand("arid_raked_sand", Consts.ARID_SAND, 0xDBD3A0);
-    public static final DeferredBlock<Block> RED_ARID_RAKED_SAND = getRakedSand("red_arid_raked_sand", Consts.RED_ARID_SAND, 0xF7D3A0);
-    public static final DeferredBlock<Block> ASHEN_RAKED_SAND = getRakedSand("ashen_raked_sand", Consts.BB_ASHEN_SAND, 0x565E5D);
+    public static final DeferredBlock<Block> ARID_RAKED_SAND = getRakedSand("arid_raked_sand", Consts.ARID_SAND.loc(), 0xDBD3A0);
+    public static final DeferredBlock<Block> RED_ARID_RAKED_SAND = getRakedSand("red_arid_raked_sand", Consts.RED_ARID_SAND.loc(), 0xF7D3A0);
+    public static final DeferredBlock<Block> ASHEN_RAKED_SAND = getRakedSand("ashen_raked_sand", Consts.BB_ASHEN_SAND.loc(), 0x565E5D);
 
     public static final DeferredBlock<Block> WHITE_ENCASED_PIPE = encasedPipe("white");
     public static final DeferredBlock<Block> BROWN_ENCASED_PIPE = encasedPipe("brown");

@@ -26,10 +26,10 @@ import static net.minecraft.world.item.crafting.Ingredient.of;
 public class LDTNItems {
     public static final ItemSubRegistryHelper ITEMS = Lowdoltenuine.REGISTRY_HELPER.getItemSubHelper();
 
-    public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new ItemNameBlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM), new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final DeferredItem<BlockItem> HEART_GEODE = ITEMS.createItem("heart_geode", () -> new ItemNameBlockItem(RegUtil.blockOrSlop(Consts.HEART_CRYSTAL_ITEM.loc()), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
-    public static final DeferredItem<Item> GOLDEN_MOLTEN_LEAD_BUCKET = goldenBucket("molten_lead", Consts.MOLTEN_LEAD);
-    public static final DeferredItem<Item> GOLDEN_ECTOPLASM_BUCKET = goldenBucket("ectoplasm", Consts.ECTOPLASM);
+    public static final DeferredItem<Item> GOLDEN_MOLTEN_LEAD_BUCKET = goldenBucket("molten_lead", Consts.MOLTEN_LEAD.loc());
+    public static final DeferredItem<Item> GOLDEN_ECTOPLASM_BUCKET = goldenBucket("ectoplasm", Consts.ECTOPLASM.loc());
 
     private static DeferredItem<Item> goldenBucket(String name, ResourceLocation fluidLoc) {
         boolean prereqs = Consts.CAVERNS_AND_CHASMS.loaded() && ModList.get().isLoaded(fluidLoc.getNamespace());
@@ -42,21 +42,21 @@ public class LDTNItems {
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                     .addItemsAfter(ofMod(Items.AMETHYST_CLUSTER, Consts.HEART_CRYSTALS), HEART_GEODE)
                 .tab(CreativeModeTabs.BUILDING_BLOCKS)
-                    .addItemsAfter(ofID(Consts.STURDY_STONE, Consts.QUARK.id()), STURDY_DEEPSLATE)
+                    .addItemsAfter(ofID(Consts.STURDY_STONE.loc(), Consts.QUARK.id()), STURDY_DEEPSLATE)
                 .tab(CreativeModeTabs.NATURAL_BLOCKS)
                     .addItemsAfter(ofMod(Items.HAY_BLOCK, Consts.QUARK), BAMBOO_BUNDLE)
                 .tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
                     .addItemsAfter(of(Blocks.SEA_LANTERN), HEART_CRYSTAL_LAMP)
                 .tab(CreativeModeTabs.TOOLS_AND_UTILITIES)
-                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.CAVERNS_AND_CHASMS.id(), Consts.OREGANIZED.id()), GOLDEN_MOLTEN_LEAD_BUCKET)
-                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET, Consts.CAVERNS_AND_CHASMS.id(), Consts.JNE.id()), GOLDEN_ECTOPLASM_BUCKET)
+                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET.loc(), Consts.CAVERNS_AND_CHASMS.id(), Consts.OREGANIZED.id()), GOLDEN_MOLTEN_LEAD_BUCKET)
+                    .addItemsAfter(ofID(Consts.GOLDEN_LAVA_BUCKET.loc(), Consts.CAVERNS_AND_CHASMS.id(), Consts.JNE.id()), GOLDEN_ECTOPLASM_BUCKET)
 
                 .predicate(LDTNItems::createPredicate)
-                    .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK, Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
+                    .addItemsAfter(ofID(Consts.CREATE_ZINC_BLOCK.loc(), Consts.CREATE.id()), ZINC_BRICKS, ZINC_BRICK_STAIRS, ZINC_BRICK_SLAB, ZINC_BRICK_WALL, CHISELED_ZINC_BRICKS)
                 .predicate(LDTNItems::spawnPredicate)
-                    .addItemsAfter(ofID(Consts.SPAWN_DATES, Consts.SPAWN.id()), DATE_CRATE)
+                    .addItemsAfter(ofID(Consts.SPAWN_DATES.loc(), Consts.SPAWN.id()), DATE_CRATE)
                 .predicate(LDTNItems::mowziesPredicate)
-                        .addItemsAfter(ofID(Consts.RED_RAKED_SAND, Consts.ATMOSPHERIC.id()),
+                        .addItemsAfter(ofID(Consts.RED_RAKED_SAND.loc(), Consts.ATMOSPHERIC.id()),
                                 ARID_RAKED_SAND, RED_ARID_RAKED_SAND);
 
         if (Consts.QUARK.loaded()) {

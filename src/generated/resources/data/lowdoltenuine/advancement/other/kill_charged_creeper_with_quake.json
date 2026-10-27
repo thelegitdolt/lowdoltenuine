@@ -1,0 +1,40 @@
+{
+  "parent": "species:species/v3/kill_ten_mobs_with_quake",
+  "criteria": {
+    "quake_kill_chainsaw_kill": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "lowdoltenuine:matches_id",
+            "id": "species:quake"
+          }
+        ],
+        "victim": [
+          {
+            "charged": true,
+            "condition": "lowdoltenuine:is_charged_creeper"
+          }
+        ]
+      },
+      "trigger": "lowdoltenuine:watch_mob_die"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.other.kill_charged_creeper_with_quake.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "species:kinetic_core"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.other.kill_charged_creeper_with_quake.title"
+    }
+  },
+  "requirements": [
+    [
+      "quake_kill_chainsaw_kill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

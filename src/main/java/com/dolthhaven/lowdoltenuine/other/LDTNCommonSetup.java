@@ -37,7 +37,7 @@ public class LDTNCommonSetup {
 
     public static void registerBlockPlacing() {
         putIfNotNull(ITEM_PLACE_MAP, Items.BONE, LDTNConfig.COMMON.shouldPlaceBonePilesWithNormalBones,
-                (BlockItem) RegUtil.item(Consts.BONE_PIKE));
+                (BlockItem) Consts.BONE_PIKE.item());
     }
 
     public static void dispensers() {

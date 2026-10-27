@@ -61,7 +61,12 @@
 
   "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.description": "Use a heart crystal to save yourself from very low health",
   "advancements.lowdoltenuine.adventure.use_heart_crystal_at_half_heart.title": "Heart of Glass",
-
+  "advancements.lowdoltenuine.husbandry.what_a_hullabaloo.description": "Direct some Chimpanzees to kill a Ravager",
+  "advancements.lowdoltenuine.husbandry.what_a_hullabaloo.title": "What a Hullabaloo",
+  "advancements.lowdoltenuine.other.pvz.description": "Have a Foliaath eat a zombie at the build limit",
+  "advancements.lowdoltenuine.other.pvz.title": "Graze the Roof",
   "advancements.lowdoltenuine.nether.rewind_great_distances.description": "Travel at least 1500 blocks with the power of a Rewind Potion",
-  "advancements.lowdoltenuine.nether.rewind_great_distances.title": "Applied Quotient Topology"
+  "advancements.lowdoltenuine.nether.rewind_great_distances.title": "Applied Quotient Topology",
+  "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.description": "Become so bored that you have no choice but to kill a stickbug with lightning",
+  "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.title": "It's dead! DEAD!!!!!"
 }

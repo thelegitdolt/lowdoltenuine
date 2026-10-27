@@ -8,14 +8,12 @@ import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import com.rosemods.heart_crystals.core.registry.HCBlocks;
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -26,7 +24,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.violetmoon.quark.addons.oddities.module.PipesModule;
 
 import java.util.Arrays;
-import java.util.function.Consumer;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
@@ -39,7 +36,7 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
     @Override
     protected void buildRecipes(RecipeOutput output, HolderLookup.Provider holderLookup) {
         storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, RecipeCategory.BUILDING_BLOCKS, STURDY_DEEPSLATE);
-        storageRecipes(output.withConditions(Consts.SPAWN.requiresLoaded()), RecipeCategory.FOOD, RegUtil.item(Consts.SPAWN_DATES), RecipeCategory.DECORATIONS, DATE_CRATE);
+        storageRecipes(output.withConditions(Consts.SPAWN.requiresLoaded()), RecipeCategory.FOOD, Consts.SPAWN_DATES.item(), RecipeCategory.DECORATIONS, DATE_CRATE);
 
         storageRecipes(output.withConditions(Consts.QUARK.requiresLoaded()), RecipeCategory.MISC, Items.BAMBOO, RecipeCategory.BUILDING_BLOCKS, BAMBOO_BUNDLE);
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Blocks.BAMBOO_BLOCK).requires(Items.BAMBOO, 8)
@@ -48,8 +45,8 @@ public class LDTNRecipes extends BlueprintRecipeProvider {
 
         AndCondition createCCLoaded = and(Consts.CAVERNS_AND_CHASMS.requiresLoaded(), Consts.CREATE.requiresLoaded());
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ZINC_BRICKS, 4)
-                .define('z', RegUtil.item(Consts.ZINC_INGOT)).define('d', Items.DEEPSLATE)
-                .pattern("zd").pattern("dz").unlockedBy("has_zinc", has(RegUtil.item(Consts.ZINC_INGOT)))
+                .define('z', Consts.ZINC_INGOT.item()).define('d', Items.DEEPSLATE)
+                .pattern("zd").pattern("dz").unlockedBy("has_zinc", has(Consts.ZINC_INGOT.item()))
                 .save(output.withConditions(createCCLoaded));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, HEART_CRYSTAL_LAMP.get())

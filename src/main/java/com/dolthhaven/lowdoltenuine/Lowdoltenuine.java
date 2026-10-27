@@ -7,6 +7,7 @@ import com.dolthhaven.lowdoltenuine.core.data.client.LDTNBlockStateModel;
 import com.dolthhaven.lowdoltenuine.core.data.client.LDTNItemModelGen;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNBlockTags;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNDataMaps;
+import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNEntityTags;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNItemTags;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks;
@@ -85,6 +86,7 @@ public class Lowdoltenuine {
         LDTNBlockTags taggies = new LDTNBlockTags(event);
         dataGen.addProvider(includeServer, taggies);
         dataGen.addProvider(includeServer, new LDTNItemTags(event, taggies));
+        dataGen.addProvider(includeServer, new LDTNEntityTags(event));
         dataGen.addProvider(includeServer, new LDTNDataMaps(event));
         dataGen.addProvider(includeServer, new LDTNLootTables(event));
         dataGen.addProvider(includeServer, new LDTNRecipes(event));

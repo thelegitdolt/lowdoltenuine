@@ -1,0 +1,61 @@
+{
+  "parent": "mowziesmobs:kill_foliaath",
+  "criteria": {
+    "pvz": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "#lowdoltenuine:humanoid_zombies"
+            }
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:all_of",
+            "terms": [
+              {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "location": {
+                    "position": {
+                      "y": {
+                        "min": 300.0
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "condition": "lowdoltenuine:matches_id",
+                "id": "mowziesmobs:foliaath"
+              }
+            ]
+          }
+        ]
+      },
+      "trigger": "lowdoltenuine:watch_mob_die"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.mowzies.pvz.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "minecraft:flower_pot"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.mowzies.pvz.title"
+    }
+  },
+  "requirements": [
+    [
+      "pvz"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

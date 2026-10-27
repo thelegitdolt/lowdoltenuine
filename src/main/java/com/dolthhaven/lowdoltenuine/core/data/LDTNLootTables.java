@@ -95,9 +95,9 @@ public class LDTNLootTables extends LootTableProvider{
             this.dropReallyWeirdPottedContents(POTTED_ARID_SPROUTS);
             this.dropReallyWeirdPottedContents(POTTED_MYCELIUM_SPROUTS);
 
-            this.dropOtherOptional(ARID_RAKED_SAND, Consts.ARID_SAND);
-            this.dropOtherOptional(RED_ARID_RAKED_SAND, Consts.RED_ARID_SAND);
-            this.dropOtherOptional(ASHEN_RAKED_SAND, Consts.BB_ASHEN_SAND);
+            this.dropOtherOptional(ARID_RAKED_SAND, Consts.ARID_SAND.loc());
+            this.dropOtherOptional(RED_ARID_RAKED_SAND, Consts.RED_ARID_SAND.loc());
+            this.dropOtherOptional(ASHEN_RAKED_SAND, Consts.BB_ASHEN_SAND.loc());
 
             this.pipes();
         }

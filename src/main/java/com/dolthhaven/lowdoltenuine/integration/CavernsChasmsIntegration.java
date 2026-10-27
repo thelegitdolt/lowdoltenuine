@@ -40,8 +40,8 @@ public class CavernsChasmsIntegration {
     }
 
     public static void registerGoldenBuckets() {
-        putIfNotNull(Consts.ECTOPLASM, LDTNItems.GOLDEN_ECTOPLASM_BUCKET);
-        putIfNotNull(Consts.MOLTEN_LEAD, LDTNItems.GOLDEN_MOLTEN_LEAD_BUCKET);
+        putIfNotNull(Consts.ECTOPLASM.loc(), LDTNItems.GOLDEN_ECTOPLASM_BUCKET);
+        putIfNotNull(Consts.MOLTEN_LEAD.loc(), LDTNItems.GOLDEN_MOLTEN_LEAD_BUCKET);
     }
 
     public static void registerDispensers() {

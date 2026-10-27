@@ -36,9 +36,9 @@ public class LDTNBlockStateModel extends BlueprintBlockStateProvider {
 
         customPot(POTTED_ARID_SPROUTS, POTTED_MYCELIUM_SPROUTS, POTTED_BEACHGRASS, POTTED_TALL_BEACHGRASS);
 
-        rakedSand(ASHEN_RAKED_SAND, Consts.BB_ASHEN_SAND);
-        rakedSand(ARID_RAKED_SAND, Consts.ARID_SAND);
-        rakedSand(RED_ARID_RAKED_SAND, Consts.RED_ARID_SAND);
+        rakedSand(ASHEN_RAKED_SAND, Consts.BB_ASHEN_SAND.loc());
+        rakedSand(ARID_RAKED_SAND, Consts.ARID_SAND.loc());
+        rakedSand(RED_ARID_RAKED_SAND, Consts.RED_ARID_SAND.loc());
     }
 
     private void rakedSand(DeferredBlock<? extends Block> sand, ResourceLocation nonRaked) {

@@ -24,7 +24,7 @@ public class LDTNItemTags extends ItemTagsProvider {
         this.copy(LDTNTags.Blocks.RAKED_SANDS, LDTNTags.Items.RAKED_SANDS);
 
         this.tag(ItemTags.PIGLIN_LOVED).add(GOLDEN_ECTOPLASM_BUCKET.get(), GOLDEN_MOLTEN_LEAD_BUCKET.get());
-        this.tag(LDTNTags.Items.BUCKETS_ECTOPLASM).add(GOLDEN_ECTOPLASM_BUCKET.get()).addOptional(Consts.ECTOPLASM_BUCKET);
-        this.tag(LDTNTags.Items.BUCKETS_MOLTEN_LEAD).add(GOLDEN_MOLTEN_LEAD_BUCKET.get()).addOptional(Consts.MOLTEN_LEAD_BUCKET);
+        this.tag(LDTNTags.Items.BUCKETS_ECTOPLASM).add(GOLDEN_ECTOPLASM_BUCKET.get()).addOptional(Consts.ECTOPLASM_BUCKET.loc());
+        this.tag(LDTNTags.Items.BUCKETS_MOLTEN_LEAD).add(GOLDEN_MOLTEN_LEAD_BUCKET.get()).addOptional(Consts.MOLTEN_LEAD_BUCKET.loc());
     }
 }
