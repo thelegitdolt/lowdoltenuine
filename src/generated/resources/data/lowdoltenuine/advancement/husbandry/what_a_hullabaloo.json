@@ -1,0 +1,43 @@
+{
+  "parent": "neapolitan:husbandry/chimpanzee_attack",
+  "criteria": {
+    "pvz": {
+      "conditions": {
+        "killer": [
+          {
+            "condition": "lowdoltenuine:matches_id",
+            "id": "neapolitan:chimpanzee"
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:ravager"
+            }
+          }
+        ]
+      },
+      "trigger": "lowdoltenuine:watch_mob_die"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.husbandry.what_a_hullabaloo.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "neapolitan:bananarrow"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.husbandry.what_a_hullabaloo.title"
+    }
+  },
+  "requirements": [
+    [
+      "pvz"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

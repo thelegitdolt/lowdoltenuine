@@ -23,6 +23,7 @@ public class Consts {
     public static final ModId NEAPOLITAN = new ModId("neapolitan");
     public static final ModId SPAWN = new ModId("spawn");
     public static final ModId UPGRADE_AQUATIC = new ModId("upgrade_aquatic");
+    public static final ModId WINDSWEPT = new ModId("windswept");
     public static final ModId WOODWORKS = new ModId("woodworks");
 
 
@@ -30,6 +31,12 @@ public class Consts {
     public static final ResourceLocation HEART_CRYSTAL_ITEM = HEART_CRYSTALS.rl("heart_crystal");
     public static final ResourceLocation BANANA_PEEL = NEAPOLITAN.rl("banana_peel");
     public static final ResourceLocation BB_ASHEN_SAND = BLASTED_BARRENS.rl("ashen_sand");
+
+    public static final ResourceLocation BANANARROW = NEAPOLITAN.rl("bananarrow");
+    public static final ResourceLocation CHIMPANZEE = NEAPOLITAN.rl("chimpanzee");
+
+    public static final ResourceLocation SUSPICIOUS_STICK = SPAWN.rl("suspicious_stick");
+    public static final ResourceLocation STICKBUG = SPAWN.rl("stickbug");
 
     public static final ResourceLocation MONSTER_YAM = DUNGEONS_DELIGHT.rl("monster_yam");
     public static final ResourceLocation STURDY_STONE = QUARK.rl("sturdy_stone");
@@ -44,8 +51,9 @@ public class Consts {
     public static final ResourceLocation SPAWN_DATES = SPAWN.rl("dates");
 
     public static final ResourceLocation MOWZIES_MOBS_TAB = MOWZIES_MOBS.rl("mowziesmobs_tab");
+    public static final ResourceLocation FOLIAATH = MOWZIES_MOBS.rl("foliaath");
 
-
+    public static final ResourceLocation CHILLED = WINDSWEPT.rl("chilled");
     public static final ResourceLocation ZINC_INGOT = CREATE.rl("zinc_ingot");
     public static final ResourceLocation CREATE_ZINC_BLOCK = CREATE.rl("zinc_block");
     public static final ResourceLocation CREATE_BUILDING_TAB = CREATE.rl("palettes");

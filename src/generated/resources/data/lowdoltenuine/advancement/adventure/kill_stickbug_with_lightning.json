@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:adventure/throw_trident",
+  "criteria": {
+    "kill_bug": {
+      "conditions": {
+        "victims": [
+          [
+            {
+              "condition": "lowdoltenuine:matches_id",
+              "id": "spawn:stickbug"
+            }
+          ]
+        ]
+      },
+      "trigger": "minecraft:channeled_lightning"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "spawn:suspicious_stick"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.adventure.kill_stickbug_with_lightning.title"
+    }
+  },
+  "requirements": [
+    [
+      "kill_bug"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
