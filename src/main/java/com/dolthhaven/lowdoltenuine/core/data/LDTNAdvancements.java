@@ -94,7 +94,7 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
                 .addCriterion("be_fast", SpeedometerTrigger.withDistance(0.67))
                 .save(consumer, adventure("speed_demon"));
         challenge("nether_thrasher", "nether", Consts.MINECRAFT.rl("nether/root"), Consts.THRASHER_TOOTH::item)
-                .addCriterion("hi", CriteriaTriggers.PLAYER_HURT_ENTITY.createCriterion(new PlayerHurtEntityTrigger.TriggerInstance(Optional.empty(), Optional.empty(),
+                .addCriterion("thrasher_in_nether_whatit_boutta_do", CriteriaTriggers.PLAYER_HURT_ENTITY.createCriterion(new PlayerHurtEntityTrigger.TriggerInstance(Optional.empty(), Optional.empty(),
                         pred(new EntityIDCondition(Consts.GREAT_THRASHER.loc()), entityHasCond(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.inDimension(Level.NETHER)))))))
                 .save(consumer, nether("nether_thrasher"));
     }

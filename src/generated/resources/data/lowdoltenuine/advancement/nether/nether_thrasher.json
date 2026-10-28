@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:nether/root",
   "criteria": {
-    "hi": {
+    "thrasher_in_nether_whatit_boutta_do": {
       "conditions": {
         "entity": [
           {
@@ -37,7 +37,7 @@
   },
   "requirements": [
     [
-      "hi"
+      "thrasher_in_nether_whatit_boutta_do"
     ]
   ],
   "rewards": {
