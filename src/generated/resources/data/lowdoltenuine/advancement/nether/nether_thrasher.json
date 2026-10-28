@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "thrasher_in_nether_whatit_boutta_do": {
+      "trigger": "lowdoltenuine:thrasher_in_nether"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.nether.nether_thrasher.description"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "upgrade_aquatic:thrasher_tooth"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.nether.nether_thrasher.title"
+    }
+  },
+  "requirements": [
+    [
+      "thrasher_in_nether_whatit_boutta_do"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

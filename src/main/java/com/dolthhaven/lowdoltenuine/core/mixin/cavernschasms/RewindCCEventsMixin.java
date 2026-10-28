@@ -1,4 +1,4 @@
-package com.dolthhaven.lowdoltenuine.core.mixin;
+package com.dolthhaven.lowdoltenuine.core.mixin.cavernschasms;
 
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.llamalad7.mixinextras.sugar.Share;

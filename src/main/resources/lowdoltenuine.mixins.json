@@ -4,10 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Debug",
-    "RewindCCEventsMixin",
-    "SandRakeMixin",
     "cavernschasms.EquipableMixin",
     "cavernschasms.PackingContainerMixin",
+    "cavernschasms.RewindCCEventsMixin",
     "cavernschasms.TetherPotionMixin",
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
     "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
@@ -15,12 +14,15 @@
     "heartcrystals.HeartCrystalLampMixin",
     "heartcrystals.HeartCrystalMixin",
     "jne.BonePikeBlockMixin",
+    "mowzies.SandRakeMixin",
     "neapolitan.BlockBehaviorMixin",
+    "oreganized.SpeedometerMixin",
     "placeableitems.ItemMixin",
     "quark.BasePipeBlockMixin",
     "quark.CopperPipeBlockMixin",
     "quark.MakePipesLookGoodMixin",
     "quark.WoodPostBlockMixin",
+    "upgradeaquatic.ThrasherMixin",
     "woodworks.RecipeManagerMixin"
   ],
   "client": [

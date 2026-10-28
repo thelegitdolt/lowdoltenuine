@@ -65,6 +65,9 @@ public class Consts {
     public static final ModResource ECTOPLASM = JNE.resource("ectoplasm");
     public static final ModResource ECTOPLASM_BUCKET = JNE.resource("ectoplasm_bucket");
     public static final ModResource BONE_PIKE = JNE.resource("bone_pike");
+
+    //oregainzed
+    public static final ModResource SPEEDOMETER = OREGANIZED.registrableResource("speedometer");
     public static final ModResource MOLTEN_LEAD = OREGANIZED.resource("molten_lead");
     public static final ModResource MOLTEN_LEAD_BUCKET = OREGANIZED.resource("molten_lead_bucket");
 
@@ -90,8 +93,11 @@ public class Consts {
     public static final ModResource ARID_SAND = ATMOSPHERIC.registrableResource("arid_sand");
     public static final ModResource RED_ARID_SAND = ATMOSPHERIC.registrableResource("red_arid_sand");
     public static final ModResource ARID_SPROUTS = ATMOSPHERIC.registrableResource("arid_sprouts");
-    public static final ModResource BEACHGRASS = UPGRADE_AQUATIC.registrableResource("beachgrass");
     public static final ModResource TALL_BEACHGRASS = UPGRADE_AQUATIC.registrableResource("tall_beachgrass");
+    public static final ModResource THRASHER_TOOTH = UPGRADE_AQUATIC.registrableResource("thrasher_tooth");
+    public static final ModResource BEACHGRASS = UPGRADE_AQUATIC.registrableResource("beachgrass");
+    public static final ModResource GREAT_THRASHER = UPGRADE_AQUATIC.resource("great_thrasher");
+
     public static final ModResource MYCELIUM_SPROUTS = ENVIRONMENTAL.registrableResource("mycelium_sprouts");
 
     public record ModId(String id) {

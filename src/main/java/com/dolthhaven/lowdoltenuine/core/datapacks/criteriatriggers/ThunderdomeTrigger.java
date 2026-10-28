@@ -34,7 +34,7 @@ public class ThunderdomeTrigger extends SimpleCriterionTrigger<ThunderdomeTrigge
         );
 
         public static Criterion<TriggerInstance> domes(int mimeScore) {
-            return LDTNAdvancementTriggers.THUNDERDOME_TRIGGER.get().createCriterion(new TriggerInstance(Optional.empty(), mimeScore));
+            return LDTNAdvancementTriggers.THUNDERDOME.get().createCriterion(new TriggerInstance(Optional.empty(), mimeScore));
         }
 
         public boolean matches(LootContext context, int mimeScore) {

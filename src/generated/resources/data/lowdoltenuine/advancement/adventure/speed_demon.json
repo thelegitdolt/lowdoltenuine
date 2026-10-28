@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:adventure/sleep_in_bed",
+  "criteria": {
+    "be_fast": {
+      "conditions": {
+        "speed": {
+          "min": 0.67
+        }
+      },
+      "trigger": "lowdoltenuine:speedometer_speed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.adventure.speed_demon.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "oreganized:speedometer"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.adventure.speed_demon.title"
+    }
+  },
+  "requirements": [
+    [
+      "be_fast"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

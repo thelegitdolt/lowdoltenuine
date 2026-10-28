@@ -3,7 +3,7 @@
   "criteria": {
     "apply_quotient_topology": {
       "conditions": {
-        "distance": {
+        "velocity": {
           "min": 1500
         }
       },

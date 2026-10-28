@@ -25,7 +25,7 @@ public class RewindDistanceTrigger extends SimpleCriterionTrigger<RewindDistance
     public record TriggerInstance(Optional<ContextAwarePredicate> player, MinMaxBounds.Ints distance) implements SimpleCriterionTrigger.SimpleInstance {
         public static final Codec<TriggerInstance> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                         EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(TriggerInstance::player),
-                        MinMaxBounds.Ints.CODEC.optionalFieldOf("distance", MinMaxBounds.Ints.ANY).forGetter(TriggerInstance::distance)
+                        MinMaxBounds.Ints.CODEC.optionalFieldOf("velocity", MinMaxBounds.Ints.ANY).forGetter(TriggerInstance::distance)
                 ).apply(instance, TriggerInstance::new)
         );
 

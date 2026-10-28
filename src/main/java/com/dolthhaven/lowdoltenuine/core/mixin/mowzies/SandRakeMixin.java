@@ -1,4 +1,4 @@
-package com.dolthhaven.lowdoltenuine.core.mixin;
+package com.dolthhaven.lowdoltenuine.core.mixin.mowzies;
 
 import com.bobmowzie.mowziesmobs.server.block.RakedSandBlock;
 import com.bobmowzie.mowziesmobs.server.item.ItemSandRake;

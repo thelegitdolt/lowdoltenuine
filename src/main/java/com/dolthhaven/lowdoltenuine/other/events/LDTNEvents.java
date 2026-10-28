@@ -4,9 +4,7 @@ import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.core.datapacks.criteriatriggers.ThunderdomeTrigger;
 import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
-import com.dolthhaven.lowdoltenuine.utils.RegUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -25,7 +23,6 @@ public class LDTNEvents {
     @SubscribeEvent
     public static void THUNDERDOME(LivingDeathEvent event) {
         if (!Consts.CAVERNS_AND_CHASMS.loaded()) return;
-
         Entity entity = event.getEntity();
         if (event.getSource().getEntity() instanceof Player player && entity instanceof LivingEntity living) {
             boolean hasMimed = false;
@@ -41,7 +38,7 @@ public class LDTNEvents {
             if (hasMimed) {
                 int score = ThunderdomeTrigger.ThunderdomeUtil.incrementScore(player);
                 if (player instanceof ServerPlayer serverPlayer)
-                    LDTNAdvancementTriggers.THUNDERDOME_TRIGGER.get().trigger(serverPlayer, score);
+                    LDTNAdvancementTriggers.THUNDERDOME.get().trigger(serverPlayer, score);
             } else {
                 ThunderdomeTrigger.ThunderdomeUtil.reset(player);
             }
