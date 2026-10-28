@@ -3,6 +3,7 @@ package com.dolthhaven.lowdoltenuine.utils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -49,6 +50,10 @@ public class RegUtil {
 
     public static Block block(String namespace, String path) {
         return block(ResourceLocation.fromNamespaceAndPath(namespace, path));
+    }
+
+    public static ResourceLocation entityId(EntityType<?> entityType) {
+        return BuiltInRegistries.ENTITY_TYPE.getKey(entityType);
     }
 
     public static ResourceLocation itemId(Item item) {

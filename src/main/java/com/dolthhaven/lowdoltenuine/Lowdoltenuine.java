@@ -13,6 +13,7 @@ import com.dolthhaven.lowdoltenuine.core.registry.LDTNLootItemConditions;
 import com.dolthhaven.lowdoltenuine.other.LDTNClientSetup;
 import com.dolthhaven.lowdoltenuine.other.LDTNCommonSetup;
 import com.dolthhaven.lowdoltenuine.other.LDTNConfig;
+import com.dolthhaven.lowdoltenuine.other.LDTNTrackedData;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
 import com.mojang.logging.LogUtils;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
@@ -50,6 +51,7 @@ public class Lowdoltenuine {
         bus.addListener(this::clientSetup);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, LDTNConfig.COMMON_SPEC);
+        LDTNTrackedData.registerTrackedData();
     }
 
     private static void registrate(IEventBus bus) {

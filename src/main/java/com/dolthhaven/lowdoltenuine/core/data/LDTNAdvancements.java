@@ -3,6 +3,7 @@ package com.dolthhaven.lowdoltenuine.core.data;
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNTags;
 import com.dolthhaven.lowdoltenuine.core.datapacks.criteriatriggers.RewindDistanceTrigger;
+import com.dolthhaven.lowdoltenuine.core.datapacks.criteriatriggers.ThunderdomeTrigger;
 import com.dolthhaven.lowdoltenuine.core.datapacks.criteriatriggers.WatchMobDieTrigger;
 import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.EntityIDCondition;
 import com.dolthhaven.lowdoltenuine.core.datapacks.lootconditions.HealthLootCondition;
@@ -46,8 +47,8 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         Item heartCrystal = RegUtil.item(Consts.HEART_CRYSTAL_ITEM.loc());
         goalAdvancement("use_heart_crystal_at_half_heart", "adventure", Consts.MINECRAFT.rl("adventure/root"), () -> heartCrystal)
                 .addCriterion("use_the_heart", CriteriaTriggers.USING_ITEM.createCriterion(
-                        new UsingItemTrigger.TriggerInstance(Optional.of(ContextAwarePredicate.create(
-                                new HealthLootCondition(MinMaxBounds.Doubles.atMost(2)))),
+                        new UsingItemTrigger.TriggerInstance(pred(
+                                new HealthLootCondition(MinMaxBounds.Doubles.atMost(2))),
                                 Optional.of(ItemPredicate.Builder.item().of(heartCrystal).build()))
                 )).save(consumer, adventure("use_heart_crystal_at_half_heart"));
         challenge("rewind_great_distances", "nether", Consts.MINECRAFT.rl("nether/brew_potion"), CCItems.BEJEWELED_PEARL, 100)
@@ -63,6 +64,9 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         goalAdvancement("kill_charged_creeper_with_quake", "other", Consts.SPECIES.rl("species/v3/kill_ten_mobs_with_quake"), Consts.KINETIC_CORE::item)
                 .addCriterion("quake_kill_chainsaw_kill", WatchMobDieTrigger.TriggerInstance.emptyVictim(new IsChargedCreeperCondition(true), Consts.QUAKE.loc()))
                 .save(consumer, other("/kill_charged_creeper_with_quake"));
+        goalAdvancement("thunderdome", "adventure", Consts.MINECRAFT.rl("adventure/kill_a_mob"), Consts.MIME_HEAD::item)
+                .addCriterion("thunderdome", ThunderdomeTrigger.TriggerInstance.domes(3))
+                .save(consumer, adventure("/thunderdome"));
 
         goalAdvancement("slay_bewereager_with_silver", "other", Consts.SPECIES.rl("species/v3/v3"), Consts.CRANKBOW::item)
                 .addCriterion("large_arrow_kill", CriteriaTriggers.PLAYER_KILLED_ENTITY.createCriterion(new KilledTrigger.TriggerInstance(

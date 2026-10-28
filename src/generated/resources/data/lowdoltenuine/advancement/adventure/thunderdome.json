@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:adventure/kill_a_mob",
+  "criteria": {
+    "thunderdome": {
+      "conditions": {
+        "mimes_thunderdomed": 3
+      },
+      "trigger": "lowdoltenuine:thunderdome"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.lowdoltenuine.adventure.thunderdome.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "caverns_and_chasms:mime_head"
+    },
+    "title": {
+      "translate": "advancements.lowdoltenuine.adventure.thunderdome.title"
+    }
+  },
+  "requirements": [
+    [
+      "thunderdome"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

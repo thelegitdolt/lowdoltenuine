@@ -1,13 +1,17 @@
 package com.dolthhaven.lowdoltenuine.utils;
 
 import com.dolthhaven.lowdoltenuine.core.data.DummyItemsRegistry;
+import com.dolthhaven.lowdoltenuine.core.data.tag.LDTNTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 
@@ -66,7 +70,8 @@ public class Consts {
 
     // caverns and chasms
     public static final ModResource GOLDEN_LAVA_BUCKET = CAVERNS_AND_CHASMS.resource("golden_lava_bucket");
-    public static final ModResource SILVER_ARROW = CAVERNS_AND_CHASMS.resource("silver_arrow");
+    public static final ModResource MIME = CAVERNS_AND_CHASMS.resource("mime");
+    public static final ModResource MIME_HEAD = CAVERNS_AND_CHASMS.registrableResource("mime_head");
 
     public static final ModResource SPAWN_DATES = SPAWN.registrableResource("dates");
 
@@ -140,6 +145,22 @@ public class Consts {
 
         public <V> V as(Registry<V> register) {
             return register.get(loc);
+        }
+
+        public boolean is(Entity entity) {
+            return RegUtil.entityId(entity.getType()).equals(loc());
+        }
+
+        public boolean is(ItemStack stack) {
+            Item item = item();
+            if (item == null) return false;
+            return stack.is(item);
+        }
+
+        public boolean is(BlockState state) {
+            Block block = block();
+            if (block == null) return false;
+            return state.is(block());
         }
     }
 }
