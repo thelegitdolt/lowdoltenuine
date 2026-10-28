@@ -99,7 +99,7 @@ dependencies {
     implementation "maven.modrinth:mowzies-mobs:${project.mowzie}"
     implementation "maven.modrinth:farmers-delight:${project.fd}"
     implementation "maven.modrinth:oreganized:${project.oreganized}"
-    implementation "maven.modrinth:upgrade-aquatic:${project.upgradeaqu}"
+//    implementation "maven.modrinth:upgrade-aquatic:${project.upgradeaqu}"
 
 //    implementation "maven.modrinth:opposing-force:${project.oppforce}"
 //    implementation "maven.modrinth:sinew:${project.sinew}"
