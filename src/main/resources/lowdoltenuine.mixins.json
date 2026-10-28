@@ -22,7 +22,6 @@
     "quark.CopperPipeBlockMixin",
     "quark.MakePipesLookGoodMixin",
     "quark.WoodPostBlockMixin",
-    "upgradeaquatic.ThrasherMixin",
     "woodworks.RecipeManagerMixin"
   ],
   "client": [

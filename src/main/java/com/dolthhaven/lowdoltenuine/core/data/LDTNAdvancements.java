@@ -23,6 +23,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.AnyOfCondition;
 import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
@@ -33,6 +34,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import javax.naming.Context;
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -53,7 +55,7 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
                                 new HealthLootCondition(MinMaxBounds.Doubles.atMost(2))),
                                 Optional.of(ItemPredicate.Builder.item().of(heartCrystal).build()))
                 )).save(consumer, adventure("use_heart_crystal_at_half_heart"));
-        challenge("rewind_great_distances", "nether", Consts.MINECRAFT.rl("nether/brew_potion"), CCItems.BEJEWELED_PEARL, 100)
+        challenge("rewind_great_distances", "nether", Consts.MINECRAFT.rl("nether/brew_potion"), CCItems.BEJEWELED_PEARL)
                 .addCriterion("apply_quotient_topology", RewindDistanceTrigger.TriggerInstance.withDistance(1500))
                 .save(consumer, nether("rewind_great_distances"));
 
@@ -91,8 +93,9 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         goalAdvancement("speed_demon", "adventure", Consts.MINECRAFT.rl("adventure/sleep_in_bed"), Consts.SPEEDOMETER::item)
                 .addCriterion("be_fast", SpeedometerTrigger.withDistance(0.67))
                 .save(consumer, adventure("speed_demon"));
-        challenge("nether_thrasher", "nether", Consts.MINECRAFT.rl("nether/root"), Consts.THRASHER_TOOTH::item, 100)
-                .addCriterion("thrasher_in_nether_whatit_boutta_do", LDTNAdvancementTriggers.THRASHER_IN_NETHER.get().createCriterion(new PlayerTrigger.TriggerInstance(Optional.empty())))
+        challenge("nether_thrasher", "nether", Consts.MINECRAFT.rl("nether/root"), Consts.THRASHER_TOOTH::item)
+                .addCriterion("hi", CriteriaTriggers.PLAYER_HURT_ENTITY.createCriterion(new PlayerHurtEntityTrigger.TriggerInstance(Optional.empty(), Optional.empty(),
+                        pred(new EntityIDCondition(Consts.GREAT_THRASHER.loc()), entityHasCond(EntityPredicate.Builder.entity().located(LocationPredicate.Builder.inDimension(Level.NETHER)))))))
                 .save(consumer, nether("nether_thrasher"));
     }
 
@@ -116,8 +119,12 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
         return createAdvancement(name, category, parent, icon, AdvancementType.TASK, true, true, false, 0);
     }
 
-    private static Advancement.Builder challenge(String name, String category, ResourceLocation parent, Supplier<Item> icon, int xp) {
-        return createAdvancement(name, category, parent, icon, AdvancementType.CHALLENGE, true, true, false, xp);
+    private static LootItemCondition entityHasCond(EntityPredicate.Builder predicate) {
+        return LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, predicate).build();
+    }
+
+    private static Advancement.Builder challenge(String name, String category, ResourceLocation parent, Supplier<Item> icon) {
+        return createAdvancement(name, category, parent, icon, AdvancementType.CHALLENGE, true, true, false, 100);
     }
 
     private static Advancement.Builder createAdvancement(String name, String category, ResourceLocation parent, Supplier<Item> icon, AdvancementType frame, boolean showToast, boolean announceToChat, boolean hidden, int xpLevel) {

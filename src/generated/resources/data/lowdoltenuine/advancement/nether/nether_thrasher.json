@@ -1,8 +1,25 @@
 {
   "parent": "minecraft:nether/root",
   "criteria": {
-    "thrasher_in_nether_whatit_boutta_do": {
-      "trigger": "lowdoltenuine:thrasher_in_nether"
+    "hi": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "lowdoltenuine:matches_id",
+            "id": "upgrade_aquatic:great_thrasher"
+          },
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "dimension": "minecraft:the_nether"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_hurt_entity"
     }
   },
   "display": {
@@ -20,7 +37,7 @@
   },
   "requirements": [
     [
-      "thrasher_in_nether_whatit_boutta_do"
+      "hi"
     ]
   ],
   "rewards": {
