@@ -1,10 +1,13 @@
 package com.dolthhaven.lowdoltenuine.core.mixin.heartcrystals;
 
+import com.dolthhaven.lowdoltenuine.core.registry.LDTNAdvancementTriggers;
 import com.dolthhaven.lowdoltenuine.other.LDTNConfig;
 import com.rosemods.heart_crystals.common.item.HeartCrystalItem;
 import com.rosemods.heart_crystals.core.registry.HCSoundEvents;
 import net.minecraft.ChatFormatting;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -51,6 +54,9 @@ public class HeartCrystalMixin extends Item {
         if (!LDTNConfig.COMMON.heartCrystalsAreDifferent.get()) return;
 
         ItemStack stack = player.getItemInHand(hand);
+        if (player instanceof ServerPlayer serverPlayer) {
+            LDTNAdvancementTriggers.USE_HEART_CRYSTAL.get().trigger(serverPlayer);
+        }
 
         player.awardStat(Stats.ITEM_USED.get(this));
         player.getCooldowns().addCooldown(this, 5 * 20);

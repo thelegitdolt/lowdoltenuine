@@ -50,11 +50,10 @@ public class LDTNAdvancements implements AdvancementProvider.AdvancementGenerato
     public void generate(HolderLookup.Provider provider, Consumer<AdvancementHolder> consumer, ExistingFileHelper existingFileHelper) {
         Item heartCrystal = RegUtil.item(Consts.HEART_CRYSTAL_ITEM.loc());
         goalAdvancement("use_heart_crystal_at_half_heart", "adventure", Consts.MINECRAFT.rl("adventure/root"), () -> heartCrystal)
-                .addCriterion("use_the_heart", CriteriaTriggers.USING_ITEM.createCriterion(
-                        new UsingItemTrigger.TriggerInstance(pred(
-                                new HealthLootCondition(MinMaxBounds.Doubles.atMost(2))),
-                                Optional.of(ItemPredicate.Builder.item().of(heartCrystal).build()))
+                .addCriterion("use_the_heart", LDTNAdvancementTriggers.USE_HEART_CRYSTAL.get().createCriterion(
+                        new PlayerTrigger.TriggerInstance(pred(new HealthLootCondition(MinMaxBounds.Doubles.atMost(2))))
                 )).save(consumer, adventure("use_heart_crystal_at_half_heart"));
+
         challenge("rewind_great_distances", "nether", Consts.MINECRAFT.rl("nether/brew_potion"), CCItems.BEJEWELED_PEARL)
                 .addCriterion("apply_quotient_topology", RewindDistanceTrigger.TriggerInstance.withDistance(1500))
                 .save(consumer, nether("rewind_great_distances"));

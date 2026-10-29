@@ -18,6 +18,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
+import java.util.List;
+
 @EventBusSubscriber(modid = Lowdoltenuine.MOD_ID)
 public class LDTNEvents {
     @SubscribeEvent
@@ -56,9 +58,12 @@ public class LDTNEvents {
                 LDTNAdvancementTriggers.WATCH_MOB_DIE.get().trigger(player, killer, victim, source);
             }
 
-            if (killer.level().getNearbyPlayers(TargetingConditions.forNonCombat(), livingKiller, new AABB(pos).inflate(25, 25, 25)) instanceof ServerPlayer player) {
-                LDTNAdvancementTriggers.WATCH_MOB_DIE.get().trigger(player, killer, victim, source);
-            }
+            List<Player> nearbyPlayers = killer.level().getNearbyPlayers(TargetingConditions.forNonCombat(), livingKiller, new AABB(pos).inflate(30, 25, 30));
+
+            nearbyPlayers.forEach(player -> {
+                if (player instanceof ServerPlayer serverPlayer)
+                    LDTNAdvancementTriggers.WATCH_MOB_DIE.get().trigger(serverPlayer, killer, victim, source);
+            });
         }
     }
 }

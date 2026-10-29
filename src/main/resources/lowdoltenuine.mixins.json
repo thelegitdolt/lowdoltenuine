@@ -11,6 +11,7 @@
     "emi.backpackscreenfillingfeature.EmiRecipeFillerMixin",
     "emi.backpackscreenfillingfeature.FillRecipeC2SPacketMixin",
     "emi.backpackscreenfillingfeature.SortOpenloaderDatapackMixin",
+    "heartcrystals.HeartCrystalBlockMixin",
     "heartcrystals.HeartCrystalLampMixin",
     "heartcrystals.HeartCrystalMixin",
     "jne.BonePikeBlockMixin",

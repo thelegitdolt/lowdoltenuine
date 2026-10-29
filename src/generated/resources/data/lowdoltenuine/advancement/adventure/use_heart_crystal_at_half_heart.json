@@ -3,9 +3,6 @@
   "criteria": {
     "use_the_heart": {
       "conditions": {
-        "item": {
-          "items": "heart_crystals:heart_crystal"
-        },
         "player": [
           {
             "condition": "lowdoltenuine:health",
@@ -15,7 +12,7 @@
           }
         ]
       },
-      "trigger": "minecraft:using_item"
+      "trigger": "lowdoltenuine:use_heart_crystal"
     }
   },
   "display": {

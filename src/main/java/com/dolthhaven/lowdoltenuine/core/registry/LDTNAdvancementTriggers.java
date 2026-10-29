@@ -19,5 +19,5 @@ public class LDTNAdvancementTriggers {
     public static final DeferredHolder<CriterionTrigger<?>, WatchMobDieTrigger> WATCH_MOB_DIE = TRIGGERS.register("watch_mob_die", WatchMobDieTrigger::new);
     public static final DeferredHolder<CriterionTrigger<?>, ThunderdomeTrigger> THUNDERDOME = TRIGGERS.register("thunderdome", ThunderdomeTrigger::new);
     public static final DeferredHolder<CriterionTrigger<?>, SpeedometerTrigger> SPEEDOMETER_SPEED = TRIGGERS.register("speedometer_speed", SpeedometerTrigger::new);
-    public static final DeferredHolder<CriterionTrigger<?>, PlayerTrigger> THRASHER_IN_NETHER = TRIGGERS.register("thrasher_in_nether", PlayerTrigger::new);
+    public static final DeferredHolder<CriterionTrigger<?>, PlayerTrigger> USE_HEART_CRYSTAL = TRIGGERS.register("use_heart_crystal", PlayerTrigger::new);
 }

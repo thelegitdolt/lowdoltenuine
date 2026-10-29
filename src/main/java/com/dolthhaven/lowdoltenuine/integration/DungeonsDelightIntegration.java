@@ -27,6 +27,6 @@ public class DungeonsDelightIntegration {
     }
 
     private static Holder<MobEffect> ddeffect(String path) {
-        return BuiltInRegistries.MOB_EFFECT.getHolder(Consts.DUNGEONS_DELIGHT.rl(path)).orElseThrow();
+        return BuiltInRegistries.MOB_EFFECT.getHolder(Consts.DUNGEONS_DELIGHT.rl(path)).orElse(null);
     }
 }

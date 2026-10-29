@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.RenderType;
 
 import static com.dolthhaven.lowdoltenuine.core.registry.LDTNBlocks.*;
 
+@SuppressWarnings("deprecation")
 public class LDTNClientSetup {
     public static void clientCompat() {
         registerPipeRender();

@@ -5,15 +5,6 @@
       "conditions": {
         "killer": [
           {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "type": "#lowdoltenuine:humanoid_zombies"
-            }
-          }
-        ],
-        "victim": [
-          {
             "condition": "minecraft:all_of",
             "terms": [
               {
@@ -34,6 +25,15 @@
                 "id": "mowziesmobs:foliaath"
               }
             ]
+          }
+        ],
+        "victim": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "#lowdoltenuine:humanoid_zombies"
+            }
           }
         ]
       },
