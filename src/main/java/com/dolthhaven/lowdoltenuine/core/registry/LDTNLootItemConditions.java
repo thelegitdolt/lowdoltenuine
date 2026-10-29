@@ -15,5 +15,4 @@ public class LDTNLootItemConditions {
     public static final DeferredHolder<LootItemConditionType, ?> HEALTH = LOOT_CONDITIONS.register("health", () -> new LootItemConditionType(HealthLootCondition.CODEC));
     public static final DeferredHolder<LootItemConditionType, ?> MATCHES_ID = LOOT_CONDITIONS.register("matches_id", () -> new LootItemConditionType(EntityIDCondition.CODEC));
     public static final DeferredHolder<LootItemConditionType, ?> IS_CHARGED_CREEPER = LOOT_CONDITIONS.register("is_charged_creeper", () -> new LootItemConditionType(IsChargedCreeperCondition.CODEC));
-
 }

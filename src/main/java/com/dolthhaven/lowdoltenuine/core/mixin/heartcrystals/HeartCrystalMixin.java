@@ -16,12 +16,14 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -35,18 +37,21 @@ import java.util.List;
 
 @Pseudo
 @Mixin(HeartCrystalItem.class)
-public class HeartCrystalMixin extends Item {
-    public HeartCrystalMixin(Properties p_41383_) {
-        super(p_41383_);
-    }
+public class HeartCrystalMixin extends BlockItem {
 
     @Unique
     private static final List<MobEffectInstance> BENEFITS = List
             .of(new MobEffectInstance(MobEffects.HEALTH_BOOST, 60 * 8 * 20), new MobEffectInstance(MobEffects.REGENERATION, 15 * 20));
 
+    public HeartCrystalMixin(Block block, Properties properties) {
+        super(block, properties);
+    }
+
     @Override
     public InteractionResult useOn(@NotNull UseOnContext context) {
-        return InteractionResult.PASS;
+        if (LDTNConfig.COMMON.heartGeodeBlock.get())
+            return InteractionResult.PASS;
+        return super.useOn(context);
     }
 
     @Inject(method = "use", at = @At("HEAD"), cancellable = true)

@@ -21,6 +21,7 @@ public class LDTNConfig {
         // heart crystals
         public final ModConfigSpec.ConfigValue<Boolean> heartCrystalsAreDifferent;
         public final ModConfigSpec.ConfigValue<Boolean> heartLanternsDontGiveRegen;
+        public final ModConfigSpec.ConfigValue<Boolean> heartGeodeBlock;
 
         // opposing forces
         public final ModConfigSpec.ConfigValue<Boolean> opposeForceSawBladeChopTree;
@@ -84,6 +85,8 @@ public class LDTNConfig {
                     .define("Impermanent Hearts", false);
             heartLanternsDontGiveRegen = builder.comment("If heart lanterns should no longer be a source of the regeneration effect.")
                     .define("Heart Lanterns Don't Give Regeneration", false);
+            heartGeodeBlock = builder.comment("If Heart Crystals should drop as a block when silk touched, like other ores.")
+                    .define("Heart Geode", false);
             builder.pop();
             builder.pop();
 

@@ -53,7 +53,7 @@ import static net.minecraft.world.level.storage.loot.entries.LootItem.lootTableI
 
 
 public class LDTNLootTables extends LootTableProvider{
-    private static final Set<Block> MODIFY_WHITELIST = Set.of(HCBlocks.HEART_CRYSTAL.get());
+    private static final Set<Block> MODIFY_WHITELIST = Set.of();
 
     protected static final LootItemCondition.Builder IS_SHEARS = CanItemPerformAbility.canItemPerformAbility(ItemAbilities.SHEARS_HARVEST);
 
@@ -82,7 +82,7 @@ public class LDTNLootTables extends LootTableProvider{
             this.dropSelf(DATE_CRATE.get());
             this.dropSelf(BAMBOO_BUNDLE.get());
             this.dropSelf(HEART_CRYSTAL_LAMP.get());
-            this.add(HCBlocks.HEART_CRYSTAL.get(), lootTable().withPool(
+            this.add(RegUtil.block(Lowdoltenuine.rl("heart_geode")), lootTable().withPool(
                     lootPool().add(alternatives(lootTableItem(HEART_GEODE.get())
                             .when(hasSilkTouch())
                             .otherwise(lootTableItem(HCBlocks.HEART_CRYSTAL.asItem()))))));
