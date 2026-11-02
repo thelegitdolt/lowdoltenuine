@@ -2,6 +2,7 @@ package com.dolthhaven.lowdoltenuine.core.data;
 
 import com.dolthhaven.lowdoltenuine.Lowdoltenuine;
 import com.dolthhaven.lowdoltenuine.utils.Consts;
+import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

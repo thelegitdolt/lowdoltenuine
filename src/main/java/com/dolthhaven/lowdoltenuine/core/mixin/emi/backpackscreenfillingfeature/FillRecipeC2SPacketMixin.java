@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.violetmoon.quark.addons.oddities.inventory.slot.CachedItemHandlerSlot;
 
 // Fixes backpacks etc
+// Doesn't load if quark isn't loaded because i disabled it in the mixin config plugin thing
 @Pseudo
 @Mixin(FillRecipeC2SPacket.class)
 public class FillRecipeC2SPacketMixin {

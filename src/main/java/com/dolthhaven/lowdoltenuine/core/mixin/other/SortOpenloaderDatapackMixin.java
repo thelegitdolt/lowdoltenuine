@@ -1,4 +1,4 @@
-package com.dolthhaven.lowdoltenuine.core.mixin.emi.backpackscreenfillingfeature;
+package com.dolthhaven.lowdoltenuine.core.mixin.other;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;

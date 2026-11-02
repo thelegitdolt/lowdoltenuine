@@ -15,6 +15,7 @@ import org.violetmoon.quark.addons.oddities.inventory.BackpackMenu;
 
 import java.util.List;
 
+// Doesn't load if quark isn't loaded because i disabled it in the mixin config plugin thing
 @Pseudo
 @Mixin(EmiRecipeFiller.class)
 public class EmiRecipeFillerMixin {
