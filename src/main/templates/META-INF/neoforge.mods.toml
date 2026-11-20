@@ -47,6 +47,12 @@ description='''
     side="BOTH"
 
 [[dependencies.${mod_id}]]
+    modId="caverns_and_chasms"
+    type="optional"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="heart_crystals"
     type="optional"
     ordering="AFTER"
